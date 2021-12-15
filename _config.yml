@@ -5,10 +5,10 @@
 # Site
 title: Piggy Slave's Blog
 subtitle: ''
-description: ''
+description: '大家好，我是粉红小猪Piggy Slave, 我在这里记录分享自己的情感生活'
 keywords:
 author: p1slave
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,9 +97,43 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# Search
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# Sitemaps - https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  #template: ./sitemap_template.xml
+  rel: false
+  tags: true
+  categories: true
+
+# Feed
+feed:
+  enable: true
+  type: 
+    - atom
+    - rss2
+  path: 
+    - atom.xml
+    - rss2.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
