@@ -5,7 +5,7 @@
 # Site
 title: Piggy Slave's Blog
 subtitle: ''
-description: '大家好，我是粉红小猪Piggy Slave, 我在这里记录分享自己的情感生活'
+description: '大家好，我是粉红小猪Piggy Slave又简称p1slave, 我在这里记录分享自己的情感生活和写一些感悟随笔'
 keywords:
 author: p1slave
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://p1slave.com
+url: https://p1slave.com
 permalink: :year-:month-:day-:title/
 permalink_defaults:
 pretty_urls:
@@ -137,3 +137,31 @@ feed:
   icon: icon.png
   autodiscovery: true
   template:
+
+
+# Encryption and Security
+encrypt: # hexo-blog-encrypt
+  abstract: This post is encrypted, password is required to continue reading.
+  message: Ask the admin for password.
+  # tags:
+  # - {name: encryptAsDiary, password: passwordA}
+  # - {name: encryptAsTips, password: passwordB}
+  theme: xray
+  wrong_pass_message: Oh, this is an invalid password. Check and try again, please.
+  wrong_hash_message: Oh, these decrypted content cannot be verified, but you can still have a look.
+
+# Watermark
+# watermark:
+#     enable: true
+#     textEnable: true
+#     rotate: -45
+#     gravity: centre
+#     directory:
+#         - posts
+
+
+# "hexo-web-push-notification": "^0.4.0",
+# webPushNotification:
+#   webpushrKey: "edfd362f037c44d6493ee2bd87bcd779"
+#   webpushrAuthToken: "42492"
+#   trackingCode: "BNdwGjEp_Yn0y89vfRj3Nt3-zJ1aW_dYZo9S-mqsIUTQUyR-R_63zp_XaRPkcO6XtjtMRDE0zDf7CffWPOE-0k0"

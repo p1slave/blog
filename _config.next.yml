@@ -142,7 +142,7 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   #GitHub: https://github.com/yourname || fab fa-github
-  E-Mail: mailto:mykink01@gmail.com || fa fa-envelope
+  E-Mail: mailto:offset.01.piker@icloud.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -165,7 +165,8 @@ links_settings:
   layout: block
 
 links:
-  #Title: https://example.com
+  Patreon: https://www.patreon.com/bePatron?u=66277088
+  一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
@@ -256,14 +257,15 @@ reward_settings:
   # If true, a donate button will be displayed in every article by default.
   enable: true
   animation: true
-  comment: Buy me a coffee
+  comment: Buy me a coffee and become a patreon!
 
 reward:
   wechatpay: /images/wechat_donation_qrcode.jpg
-  #alipay: /images/alipay.png
+  cashapp: /images/cashapp_qrcode.jpg
+  #alipay: /images/alipay.png/
   #paypal: /images/paypal.png
-  bitcoin: /images/btc_qrcode.png
-  bitcoincash: /images/bch_qrcode.png
+  btc: /images/btc_qrcode.png
+  bch: /images/bch_qrcode.png
   etherum: /images/eth_qrcode.png
 
 # Subscribe through Telegram Channel, Twitter, etc.
