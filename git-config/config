@@ -1,0 +1,17 @@
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        sshCommand = ssh -i ~/.ssh/id_ed25519_p1s
+[user]
+        name = p1slave
+        email = mykink01@gmail.com
+[remote "origin"]
+        url = git@github.com:p1slave/blog.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
