@@ -35,5 +35,3 @@ tags:
 
 
 最后我想做个小调查，像我这样fetish玩的比较开心，但想找个靠谱的中国女生谈恋爱结婚的话有多少人能接受的，我也不想欺骗隐瞒对方，对人也是坦诚相待，论坛征婚帖上经常看到写着要求没有不良嗜好搞的我有点慌啊，虽然我经过教导现在觉得fetish只是一点卧室的情趣不应该被当作不良嗜好，考虑发起一个投票然后收集一点建议欢迎大家留言交流
-
-<a style="font-size:30px" href="https://www.patreon.com/bePatron?u=66277088" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
