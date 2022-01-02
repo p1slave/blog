@@ -142,10 +142,11 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   #GitHub: https://github.com/yourname || fab fa-github
-  E-Mail: mailto:offset.01.piker@icloud.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
-  #Twitter: https://twitter.com/yourname || fab fa-twitter
+  Twitter: https://twitter.com/piggy1slave || fab fa-twitter
+  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  E-Mail: mailto:offset.01.piker@icloud.com || fa fa-envelope
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
   #YouTube: https://youtube.com/yourname || fab fa-youtube
@@ -272,10 +273,12 @@ reward:
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
 follow_me:
-  #Twitter: https://twitter.com/username || fab fa-twitter
+  Twitter: https://twitter.com/piggy1slave || fab fa-twitter
+  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html || fas fa-piggy-bank
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
-  #RSS: /atom.xml || fa fa-rss
+  RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
