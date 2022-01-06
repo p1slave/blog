@@ -21,7 +21,7 @@ minify: false
 custom_file_path:
   #head: source/_data/head.njk
   #header: source/_data/header.njk
-  #sidebar: source/_data/sidebar.njk
+  sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
   postBodyEnd: source/_data/post-body-end.njk
   footer: source/_data/footer.njk
@@ -168,6 +168,7 @@ links_settings:
 links:
   订阅Patreon: https://www.patreon.com/bePatron?u=66277088
   一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
+  Twitter时间线: /twitter/
   捐款链接: /donation/
 
 # Table of Contents in the Sidebar
