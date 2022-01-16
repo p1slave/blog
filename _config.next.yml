@@ -87,8 +87,9 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
-  Patreon链接: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
-  Twitter链接: https://twitter.com/piggy1slave || fab fa-twitter
+  GitHub: https://github.com/p1slave || fab fa-github
+  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  Twitter: https://twitter.com/piggy1slave || fab fa-twitter
   捐款链接: /donation/ || fa fa-donate
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
@@ -144,7 +145,7 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
+  GitHub: https://github.com/p1slave || fab fa-github
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   Twitter: https://twitter.com/piggy1slave || fab fa-twitter
@@ -279,6 +280,7 @@ reward:
 follow_me:
   Twitter: https://twitter.com/piggy1slave || fab fa-twitter
   Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  GitHub: https://github.com/p1slave || fab fa-github
   一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html || fas fa-piggy-bank
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
@@ -300,9 +302,9 @@ related_posts:
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: false
-  url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/ # Link for view source
-  #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/ # Link for fork & edit
+  enable: true
+  # url: https://github.com/p1slave/blog/tree/master/source/ # Link for view source
+  url: https://github.com/p1slave/blog/edit/master/source/ # Link for fork & edit
 
 # Show previous post and next post in post footer if exists
 # Available values: left | right | false
@@ -410,8 +412,8 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/p1slave
   title: Follow me on GitHub
 
 
