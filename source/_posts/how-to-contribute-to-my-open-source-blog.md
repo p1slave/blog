@@ -14,6 +14,8 @@ Hello, I'm p1slave and this is my personal blog to document my fetish life onlin
 
 Note that your story will be added to my blog immediately once your PR is merged into the master branch if you follow the instruction to make contribution to my repo. If you see typos and errors in the existing posts and blog, feel free to send PR to correct them too. The pen sign on the upper right corner of each blog post is the editing link of that post on Github so you can directly make changes on Github rather than clone the repo locally. 
 
+<!-- more -->
+
 I hope you can publish your fetish stories here because eventually I will build a fetish forum exclusively for the lovely kinksters I love to hear from and I will automate the migration of your blog posts to the new website so you don't have to copy and paste your stories one by one to a new place. 
 
 ## Git config for your alt life
