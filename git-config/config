@@ -5,10 +5,10 @@
         logallrefupdates = true
         symlinks = false
         ignorecase = true
-        sshCommand = ssh -i ~/.ssh/id_ed25519_p1s
+        sshCommand = ssh -i ~/.ssh/id_ed25519_xxx
 [user]
         name = p1slave
-        email = mykink01@gmail.com
+        email = yourname@yourmail.com
 [remote "origin"]
         url = git@github.com:p1slave/blog.git
         fetch = +refs/heads/*:refs/remotes/origin/*
