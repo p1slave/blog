@@ -1,3 +1,14 @@
+---
+title: 博客已完全开源欢迎修改和添加你的故事！
+date: 2022-01-16 14:48:49
+tags:
+- github
+- open source
+- tutorial
+- hexo
+- 教程
+---
+
 # Welcome to my blog
 Hello, I'm p1slave and this is my personal blog to document my fetish life online and I do not wish to reveal my identity on the internet. I have been using VPN and proxy to hide my traces even with fake names when browsing the websites and pushing my commits here. Please don't try to figure out who I am but you are welcome to share your stories with the rest of the world freely by sending pull requests to this repo [p1slave/blog](https://github.com/p1slave/blog) or even start your own blog. 
 
