@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/p1slave
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://p1slave.com
+  * I am p1slave (https://keybase.io/p1slave) on keybase.
+  * I have a public key ASAVo33W1SdE47st4-hUG8160Kfa5F4Be6rFA9coQlN_oQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012015a37dd6d52744e3bb2de3e8541bcd7ad0a7dae45e017baac503d72842537fa10a",
+      "host": "keybase.io",
+      "kid": "012015a37dd6d52744e3bb2de3e8541bcd7ad0a7dae45e017baac503d72842537fa10a",
+      "uid": "eec677c5efa6289594d0585973d03e19",
+      "username": "p1slave"
+    },
+    "merkle_root": {
+      "ctime": 1642735278,
+      "hash": "2214c65004c9d1563f0de1c69b71c1a3042037d0b1cd85bfe7159742ba6822a81e9879e48e5f20d3645b69ed43d51c6c09be0c673eaf079be7fdcbf7e9736ef2",
+      "hash_meta": "fa6398905599c2552238961b6dea0a2ac35e64d3644c1ba923cec836ee5ecfcc",
+      "seqno": 21684675
+    },
+    "service": {
+      "entropy": "5A7av5k3EnXb7Hy92v8clXZm",
+      "hostname": "p1slave.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.9.0"
+  },
+  "ctime": 1642735328,
+  "expire_in": 504576000,
+  "prev": "757b8e0b432e9d671ca6235841096775511b568a4c6bc83cab69fd4a52804bd1",
+  "seqno": 17,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgFaN91tUnROO7LePoVBvNetCn2uReAXuqxQPXKEJTf6EKp3BheWxvYWTESpcCEcQgdXuOC0MunWccpiNYQQlndVEbVopMa8g8q2n9SlKAS9HEIMHMLHUT4zoUxTIlydQunaQojbdoKkqoIfXdpSqNcMGWAgHCo3NpZ8RA/cpejZ7TiQSfVT7n2KRxyVSvG3K8KEyZcc+i9BrRt6SnGU08mQhfXL8W7ZUKHUz6QBPG+US0z3la3ebXNmMxD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIFkzeqd/iOHIzCgDtuaJwh0fod/RaRYgu+g6O8Ui+O/Yo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/p1slave
+
+==================================================================
