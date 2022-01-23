@@ -91,7 +91,7 @@ Generate a new post if you have a new story to share. The post title should star
 
 ```bash
 # Here is a good example for naming
-hexo new post mentee-contribution-yourname-crushed-under-the-ass-of-some-goddesses 
+hexo new post external-contribution-yourname-crushed-under-the-ass-of-some-goddesses 
 ```
 
 After the execution of the command above, a new Markdown post file will be created in `_posts` folder and inside `_post` folder there is another folder with the exact same name of your post to hold assets. Put your photos and videos in the corresponding folder and they can be accessed directly in your post without specifying the relative path.

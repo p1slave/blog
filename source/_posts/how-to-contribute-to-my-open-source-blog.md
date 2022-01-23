@@ -22,6 +22,8 @@ You are welcome to follow the instructions and post new stories about the follow
 * Anything valuable for the betterment of humanity that you want to spread to more audiences and persist it with distributed storage on Github. 
 * Trump's latest nude photos? Why not? You can directly add photos to `source/images` without publishing a post at all. I may quote your photos one day:)
 
+<!-- more -->
+
 Preferably, the stories you write should be very detailed followed by your own thoughts, reflections, analysis, photos or even videos but do not leak any personal information unless you intentionally want to be famous. 
 
 I hope you can publish your stories here because eventually I will build a fetish forum exclusively for all the well-mannered lovely kinksters I love to hear from and I will automate the migration of your blog posts to the new website so you don't have to copy and paste your stories one by one to a new place. 
@@ -102,7 +104,7 @@ Generate a new post if you have a new story to share. The post title should star
 
 ```bash
 # Here is a good example for naming
-hexo new post mentee-contribution-yourname-crushed-under-the-ass-of-some-goddesses 
+hexo new post external-contribution-yourname-crushed-under-the-ass-of-some-goddesses 
 ```
 
 After the execution of the command above, a new Markdown post file will be created in `_posts` folder and inside `_post` folder there is another folder with the exact same name of your post to hold assets. Put your photos and videos in the corresponding folder and they can be accessed directly in your post without specifying the relative path.
