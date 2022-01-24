@@ -9,6 +9,7 @@
 [user]
         name = p1slave
         email = yourname@yourmail.com
+	signingkey = BD5AF7C084C67883
 [remote "origin"]
         url = git@github.com:p1slave/blog.git
         fetch = +refs/heads/*:refs/remotes/origin/*
