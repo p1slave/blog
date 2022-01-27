@@ -9,11 +9,33 @@ tags:
 - 教程
 ---
 
+## 欢迎来到我的博客
+大家好，我是粉红小猪p1slave，考虑到愿意写故事在这发表的用户不一定是码农群体，就算是码农也可能懒得去本地安装我的博客，甚至懒得看大段的英文教学文档。之前的文档用英文写不是因为要装逼而是习惯了，并且希望有更多人（不仅限于中文社区的朋友）可以使用和学习我的博客框架和搭建过程。
+
+## 如何在我的博客添加你的故事
+为了降低给我博客做贡献的门槛，我在这里就用中文也写一下如何在浏览器网页上就能修改博客发表自己故事的教程，后面还有动画教学视频来更加直观的解释如何操作。
+* 首先你需要注册一个Github账号，然后搜索到我的博客[p1slave/blog](https://github.com/p1slave/blog)
+* 点击fork就可以把我的博客的当前版本拷贝一份到你自己的账号下，当我的博客有更新的时候，你本地的版本是保持不变的，除非你pull我最新的代码合并到你的旧版本代码
+* 在网页端指定位置按照规定写一个`external-contribution-xxx.md`这样的新文件并加上你的文章内容，文章前面必须加上标题，时间，标签等数据，具体可以按照其他文章的开头格式作为模板
+* 前面都完成后点提交会生成一个pull request，在我审核通过后即可上线，具体操作可以看下面的动画教学。加入图片等多媒体的教程可以参加倒数第二段的英文介绍，媒体文件统一都放在一个和标题同名的文件夹中。
+
+![Pull Request](https://raw.githubusercontent.com/p1slave/blog/master/source/images/pull-request.gif)
+
+
+以下是欢迎投稿的主题：
+* 与BDSM主题相关的故事，包括个人经历的叙述和心得体会，最好带有很多的细节描述，能图文并茂就更好了
+* 跨越种族，文化，国界的正常恋爱交往故事或者心路历程，当然不正常的震碎三观世界观的也十分欢迎
+* 对富有争议性两性情感话题的深入探讨和自己的独特看法
+* 任何对人类社会有价值的原创文章，你可以把我的博客看作一个分布式存储容器，就算不公开发表也可以静静的躺在草稿里
+* 一些奇怪的东西，比如川普的裸照，可以放到`source/images`的文件夹下面，说不定哪天我还会在文章里直接引用你上传的图片
+
+<!-- more -->
+
 ## Welcome to my blog
 Hello, I'm *p1slave* and this is my personal blog to document my fetish life online and I do not wish to reveal my identity on the internet. I have been using VPN and proxy to hide my traces even with fake names when browsing the websites and pushing my commits here. Please don't try to figure out who I am but you are welcome to share your stories with the rest of the world freely by sending pull requests to this repo [**p1slave/blog**](https://github.com/p1slave/blog) or even start your own blog. 
 
 
-## Make contribution
+## Make contribution as a technical user
 You are welcome to follow the instructions and post new stories about the following topics:
 
 * Stories about your fetish and BDSM related experience. 
@@ -21,8 +43,6 @@ You are welcome to follow the instructions and post new stories about the follow
 * Discussion and your in-depth thoughts on some controversial topics about special relationships or general relationships.
 * Anything valuable for the betterment of humanity that you want to spread to more audiences and persist it with distributed storage on Github. 
 * Trump's latest nude photos? Why not? You can directly add photos to `source/images` without publishing a post at all. I may quote your photos one day:)
-
-<!-- more -->
 
 Preferably, the stories you write should be very detailed followed by your own thoughts, reflections, analysis, photos or even videos but do not leak any personal information unless you intentionally want to be famous. 
 
