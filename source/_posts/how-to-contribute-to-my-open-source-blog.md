@@ -12,6 +12,15 @@ tags:
 ## 欢迎来到我的博客
 大家好，我是粉红小猪p1slave，考虑到愿意写故事在这发表的用户不一定是码农群体，就算是码农也可能懒得去本地安装我的博客，甚至懒得看大段的英文教学文档。之前的文档用英文写不是因为要装逼而是习惯了，并且希望有更多人（不仅限于中文社区的朋友）可以使用和学习我的博客框架和搭建过程。
 
+以下是欢迎投稿的主题：
+* 与BDSM主题相关的故事，包括个人经历的叙述和心得体会，最好带有很多的细节描述，能图文并茂就更好了
+* 跨越种族，文化，国界的正常恋爱交往故事或者心路历程，当然不正常的震碎三观世界观的也十分欢迎
+* 对富有争议性两性情感话题的深入探讨和自己的独特看法
+* 任何对人类社会有价值的原创文章，你可以把我的博客看作一个分布式存储容器，就算不公开发表也可以静静的躺在草稿里
+* 一些奇怪的东西，比如川普的裸照，可以放到`source/images`的文件夹下面，说不定哪天我还会在文章里直接引用你上传的图片
+
+<!-- more -->
+
 ## 如何在我的博客添加你的故事
 为了降低给我博客做贡献的门槛，我在这里就用中文也写一下如何在浏览器网页上就能修改博客发表自己故事的教程，后面还有动画教学视频来更加直观的解释如何操作。
 * 首先你需要注册一个Github账号，然后搜索到我的博客[p1slave/blog](https://github.com/p1slave/blog)
@@ -21,15 +30,6 @@ tags:
 
 ![Pull Request](https://raw.githubusercontent.com/p1slave/blog/master/source/images/pull-request.gif)
 
-
-以下是欢迎投稿的主题：
-* 与BDSM主题相关的故事，包括个人经历的叙述和心得体会，最好带有很多的细节描述，能图文并茂就更好了
-* 跨越种族，文化，国界的正常恋爱交往故事或者心路历程，当然不正常的震碎三观世界观的也十分欢迎
-* 对富有争议性两性情感话题的深入探讨和自己的独特看法
-* 任何对人类社会有价值的原创文章，你可以把我的博客看作一个分布式存储容器，就算不公开发表也可以静静的躺在草稿里
-* 一些奇怪的东西，比如川普的裸照，可以放到`source/images`的文件夹下面，说不定哪天我还会在文章里直接引用你上传的图片
-
-<!-- more -->
 
 ## Welcome to my blog
 Hello, I'm *p1slave* and this is my personal blog to document my fetish life online and I do not wish to reveal my identity on the internet. I have been using VPN and proxy to hide my traces even with fake names when browsing the websites and pushing my commits here. Please don't try to figure out who I am but you are welcome to share your stories with the rest of the world freely by sending pull requests to this repo [**p1slave/blog**](https://github.com/p1slave/blog) or even start your own blog. 
