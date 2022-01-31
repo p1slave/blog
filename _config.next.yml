@@ -90,6 +90,7 @@ menu:
   GitHub: https://github.com/p1slave || fab fa-github
   Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
   Twitter: https://twitter.com/p1slave || fab fa-twitter
+  Keybase: https://keybase.io/p1slave || fab fa-keybase
   捐款链接: /donation/ || fa fa-donate
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
@@ -145,12 +146,13 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/p1slave || fab fa-github
+  # GitHub: https://github.com/p1slave || fab fa-github
+  # Keybase: https://keybase.io/p1slave || fab fa-keybase
+  # Twitter: https://twitter.com/p1slave || fab fa-twitter
+  # Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  # E-Mail: mailto:offset.01.piker@icloud.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
-  Twitter: https://twitter.com/p1slave || fab fa-twitter
-  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
-  E-Mail: mailto:offset.01.piker@icloud.com || fa fa-envelope
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
   #YouTube: https://youtube.com/yourname || fab fa-youtube
@@ -170,8 +172,10 @@ links_settings:
   layout: block
 
 links:
+  Keybase认证: https://keybase.io/p1slave
   订阅Patreon: https://www.patreon.com/bePatron?u=66277088
   一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
+  女主天地论坛: https://nztd38.com/home.php?mod=space&uid=675819
   Twitter时间线: /twitter/
   捐款链接: /donation/
 
