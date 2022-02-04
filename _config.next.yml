@@ -271,13 +271,13 @@ reward_settings:
   comment: Buy me a coffee and become a patreon!
 
 reward:
-  wechatpay: /images/wechat_donation_qrcode.jpg
-  cashapp: /images/cashapp_qrcode.jpg
+  wechatpay: /images/qrcode/wechat_donation.jpg
+  cashapp: /images/qrcode/cashapp.jpg
   #alipay: /images/alipay.png/
   #paypal: /images/paypal.png
-  btc: /images/btc_qrcode.png
-  bch: /images/bch_qrcode.png
-  etherum: /images/eth_qrcode.png
+  btc: /images/qrcode/btc.png
+  bch: /images/qrcode/bch.png
+  etherum: /images/qrcode/eth.png
 
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)

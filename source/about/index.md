@@ -23,11 +23,11 @@ Hello大家好，我是一只粉红的小猪Piggy Slave，欢迎你来到我的�
 
 {% grouppicture 5-3 %}
 
-![](/images/wechat_donation_qrcode.jpg "微信赞赏码")
-![](/images/cashapp_qrcode.jpg "Cashapp二维码")
-![](/images/btc_qrcode.png "Bitcoin二维码")
-![](/images/bch_qrcode.png "Bitcoin Cash二维码")
-![](/images/eth_qrcode.png "以太坊二维码")
+![](/images/qrcode/wechat_donation.jpg "微信赞赏码")
+![](/images/qrcode/cashapp.jpg "Cashapp二维码")
+![](/images/qrcode/btc.png "Bitcoin二维码")
+![](/images/qrcode/bch.png "Bitcoin Cash二维码")
+![](/images/qrcode/eth.png "以太坊二维码")
 
 {% endgrouppicture %}
 

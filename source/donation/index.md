@@ -9,11 +9,11 @@ comments: false
 
 {% grouppicture 5-3 %}
 
-![](/images/wechat_donation_qrcode.jpg "微信赞赏码")
-![](/images/cashapp_qrcode.jpg "Cashapp二维码")
-![](/images/btc_qrcode.png "比特币Bitcoin二维码")
-![](/images/bch_qrcode.png "比特币现金Bitcoin Cash二维码")
-![](/images/eth_qrcode.png "以太坊ETH二维码")
+![](/images/qrcode/wechat_donation.jpg "微信赞赏码")
+![](/images/qrcode/cashapp.jpg "Cashapp二维码")
+![](/images/qrcode/btc.png "比特币Bitcoin二维码")
+![](/images/qrcode/bch.png "比特币现金Bitcoin Cash二维码")
+![](/images/qrcode/eth.png "以太坊ETH二维码")
 
 {% endgrouppicture %}
 
