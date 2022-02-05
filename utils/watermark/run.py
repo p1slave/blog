@@ -1,4 +1,5 @@
 import os
+import shutil
 import gnupg
 from pprint import pprint
 from blind_watermark import WaterMark
@@ -136,7 +137,7 @@ def add_double_watermarks(image, img_mark, str_mark, opacity=0.8):
 # Use the public key (keyid) of the recipient to encrypt the file
 def gpg_encrypt_file(file_path, keyid, output_dir=None):
     gpg = gnupg.GPG()
-    pprint(gpg.list_keys())
+    # pprint(gpg.list_keys())
     stream = open(file_path, "rb")
     crypt = gpg.encrypt_file(stream, keyid)
     
@@ -205,23 +206,54 @@ def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None):
     return crypt.status
 
 
-current_dir = os.getcwd()
-repo_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, os.pardir))
-print(repo_dir)
+# print(gpg_encrypt_file("hello.txt", "p1slave"))
+# print(gpg_decrypt_file("encrypted/hello.txt.asc", "", output_dir="decrypted"))
 
-logo_file = os.path.join(repo_dir, "source/images/p1slave-logo.png")
-wechat_file = os.path.join(repo_dir, "source/images/wechat.jpg")
-nowechat_file = os.path.join(repo_dir, "source/images/nowechat.jpg")
-
-
-# Change the grayscale photo to binary mode photo to minimize the size
-# Image.open(blind_wm_grayscale_file).convert('1').save(blind_wm_bin_file, "PNG")
-
-print(gpg_encrypt_file("hello.txt", "p1slave"))
-print(gpg_decrypt_file("encrypted/hello.txt.asc", "", output_dir="decrypted"))
-
-image = Image.open(nowechat_file)
-mark = Image.open(logo_file)
 # add_string_watermark(image, "p1slave.com", opacity=0.5).save("watermarked.png", "PNG")
 # wm_image = add_string_watermark(image, "p1slave.com", opacity=0.5)
-add_double_watermarks(image, mark, "p1slave.com", opacity=0.8).save("watermarked.png", "PNG")
+# add_double_watermarks(image, mark, "p1slave.com", opacity=0.8).save("watermarked.png", "PNG")
+
+current_dir = os.getcwd()
+repo_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, os.pardir))
+logo_file = os.path.join(repo_dir, "source/images/p1slave-logo.png")
+mark = Image.open(logo_file)
+
+keyid = "p1slave"
+passphrase = input("Enter passphrase for GPG private key: ")
+post_dir = os.path.join(repo_dir, "source/_posts")
+
+def remove_encryption_folders():
+    for root_dir, _, _ in os.walk(post_dir):
+        # Remove all folders containing encrypted files
+        if root_dir.endswith("encrypted"):
+            shutil.rmtree(root_dir)
+
+def encrypt_post_assets():
+    for root_dir, dirs, files in os.walk(post_dir):
+        # Remove all folders containing encrypted files
+        # if root_dir.endswith("encrypted"):
+        #     shutil.rmtree(root_dir)
+
+        if root_dir != post_dir and not root_dir.endswith("encrypted"):
+            print("The direcotry %s has folders: %s and files: %s" % (root_dir, dirs, files))
+            output_dir = os.path.join(root_dir, "encrypted")
+            for file in files:
+                file_path = os.path.join(root_dir, file)
+                status = gpg_encrypt_file(file_path, keyid, output_dir=output_dir)
+                print("Encrypting %s: %s" % (file_path, status))
+
+def decrypt_post_assets():
+    for root_dir, _, files in os.walk(post_dir):
+        if root_dir.endswith("encrypted"):
+            print("Found encryption folder: %s" % root_dir)
+            decryption_dir = os.path.abspath(os.path.join(root_dir, os.pardir, "decrypted"))
+            for encrypted_file in files:
+                encrypted_file_path = os.path.join(root_dir, encrypted_file)
+                status = gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=decryption_dir)
+                print("Decrypting %s: %s" % (encrypted_file_path, status))
+            
+def watermark_post_assets():
+    pass
+
+
+# decrypt_post_assets()
