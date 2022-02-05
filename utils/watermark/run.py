@@ -84,7 +84,7 @@ def reduce_opacity(image, opacity):
 
 def add_string_watermark(image, wm_str, opacity=0.8):
     assert opacity >= 0 and opacity <= 1
-    if not image.mode is 'RGBA':
+    if image.mode != 'RGBA':
         image = image.convert('RGBA')
 
     # Set the font size based on the height of image 
@@ -109,7 +109,7 @@ def add_watermark(image, mark, opacity=0.8):
     if opacity < 1:
         mark = reduce_opacity(mark, opacity)
 
-    if not image.mode is 'RGBA':
+    if image.mode != 'RGBA':
         image = image.convert('RGBA')
 
     wm = mark.size[0]  
