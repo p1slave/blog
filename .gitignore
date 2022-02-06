@@ -5,4 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
-decrypted/
+
+*/_posts/**/decrypted/
+*/_posts/**/*.jpg
