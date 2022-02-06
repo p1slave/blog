@@ -32,11 +32,11 @@ tags:
 
 {% grouppicture 5-4 %}
 
-{% asset_img 1.png %}
-{% asset_img 2.png %}
-{% asset_img 3.png %}
-{% asset_img 4.png %}
-{% asset_img 5.png %}
+{% asset_img 1.jpg %}
+{% asset_img 2.jpg %}
+{% asset_img 3.jpg %}
+{% asset_img 4.jpg %}
+{% asset_img 5.jpg %}
 
 {% endgrouppicture %}
 

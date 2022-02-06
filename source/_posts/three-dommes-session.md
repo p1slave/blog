@@ -37,12 +37,12 @@ tags:
 {% asset_img 1.jpg %}
 {% asset_img 2.jpg %}
 {% asset_img 3.jpg %}
-{% asset_img 4.png %}
-{% asset_img 5.png %}
-{% asset_img 6.png %}
-{% asset_img 7.png %}
-{% asset_img 8.png %}
-{% asset_img 9.png %}
-{% asset_img 10.png %}
+{% asset_img 4.jpg %}
+{% asset_img 5.jpg %}
+{% asset_img 6.jpg %}
+{% asset_img 7.jpg %}
+{% asset_img 8.jpg %}
+{% asset_img 9.jpg %}
+{% asset_img 10.jpg %}
 
 {% endgrouppicture %}

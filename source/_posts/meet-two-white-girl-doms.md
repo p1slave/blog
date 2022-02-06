@@ -40,7 +40,7 @@ Onsite其实我已经不慌了，毕竟已经视频过了，但在酒店房门�
 {% asset_img 4.jpg %}
 {% asset_img 5.jpg %}
 {% asset_img 6.jpg %}
-{% asset_img 7.png %}
-{% asset_img 8.png %}
+{% asset_img 7.jpg %}
+{% asset_img 8.jpg %}
 
 {% endgrouppicture %}

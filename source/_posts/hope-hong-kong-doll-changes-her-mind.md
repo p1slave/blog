@@ -31,7 +31,7 @@ tags:
 
 {% grouppicture 3-2 %}
 
-{% asset_img 1.png %}
-{% asset_img 2.png %}
+{% asset_img 1.jpg %}
+{% asset_img 2.jpg %}
 
 {% endgrouppicture %}
