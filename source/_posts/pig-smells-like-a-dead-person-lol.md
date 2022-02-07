@@ -27,9 +27,7 @@ tags:
 
 {% grouppicture 2-2 %}
 
-{% asset_img 1.jpg %}
-{% asset_img 2.jpg %}
+{% pcloudimg 1.jpg %}
+{% pcloudimg 2.jpg %}
 
 {% endgrouppicture %}
-
-

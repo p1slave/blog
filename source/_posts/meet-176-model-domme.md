@@ -32,11 +32,11 @@ tags:
 
 {% grouppicture 5-4 %}
 
-{% asset_img 1.jpg %}
-{% asset_img 2.jpg %}
-{% asset_img 3.jpg %}
-{% asset_img 4.jpg %}
-{% asset_img 5.jpg %}
+{% pcloudimg 1.jpg %}
+{% pcloudimg 2.jpg %}
+{% pcloudimg 3.jpg %}
+{% pcloudimg 4.jpg %}
+{% pcloudimg 5.jpg %}
 
 {% endgrouppicture %}
 
@@ -44,11 +44,11 @@ tags:
 
 {% grouppicture 6-5 %}
 
-{% asset_img 6.jpg %}
-{% asset_img 7.jpg %}
-{% asset_img 8.jpg %}
-{% asset_img 9.jpg %}
-{% asset_img 10.jpg %}
-{% asset_img 11.jpg %}
+{% pcloudimg 6.jpg %}
+{% pcloudimg 7.jpg %}
+{% pcloudimg 8.jpg %}
+{% pcloudimg 9.jpg %}
+{% pcloudimg 10.jpg %}
+{% pcloudimg 11.jpg %}
 
 {% endgrouppicture %}

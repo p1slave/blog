@@ -22,11 +22,11 @@ tags:
 
 {% grouppicture 6-5 %}
 
-{% asset_img 1.jpg %}
-{% asset_img 2.jpg %}
-{% asset_img 3.jpg %}
-{% asset_img 4.jpg %}
-{% asset_img 5.jpg %}
-{% asset_img 6.jpg %}
+{% pcloudimg 1.jpg %}
+{% pcloudimg 2.jpg %}
+{% pcloudimg 3.jpg %}
+{% pcloudimg 4.jpg %}
+{% pcloudimg 5.jpg %}
+{% pcloudimg 6.jpg %}
 
 {% endgrouppicture %}

@@ -34,13 +34,13 @@ Onsite其实我已经不慌了，毕竟已经视频过了，但在酒店房门�
 
 {% grouppicture 8-7 %}
 
-{% asset_img 1.jpg %}
-{% asset_img 2.jpg %}
-{% asset_img 3.jpg %}
-{% asset_img 4.jpg %}
-{% asset_img 5.jpg %}
-{% asset_img 6.jpg %}
-{% asset_img 7.jpg %}
-{% asset_img 8.jpg %}
+{% pcloudimg 1.jpg %}
+{% pcloudimg 2.jpg %}
+{% pcloudimg 3.jpg %}
+{% pcloudimg 4.jpg %}
+{% pcloudimg 5.jpg %}
+{% pcloudimg 6.jpg %}
+{% pcloudimg 7.jpg %}
+{% pcloudimg 8.jpg %}
 
 {% endgrouppicture %}

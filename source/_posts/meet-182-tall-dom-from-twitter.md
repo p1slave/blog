@@ -34,12 +34,12 @@ date: 2021-12-28 18:44:23
 
 {% grouppicture 6-5 %}
 
-{% asset_img 30.jpg %}
-{% asset_img 31.jpg %}
-{% asset_img 32.jpg %}
-{% asset_img 33.jpg %}
-{% asset_img 34.jpg %}
-{% asset_img 35.jpg %}
+{% pcloudimg 30.jpg %}
+{% pcloudimg 31.jpg %}
+{% pcloudimg 32.jpg %}
+{% pcloudimg 33.jpg %}
+{% pcloudimg 34.jpg %}
+{% pcloudimg 35.jpg %}
 
 {% endgrouppicture %}
 
@@ -47,52 +47,52 @@ date: 2021-12-28 18:44:23
 
 {% grouppicture 9-7 %}
 
-{% asset_img 5.jpg %}
-{% asset_img 6.jpg %}
-{% asset_img 7.jpg %}
-{% asset_img 8.jpg %}
-{% asset_img 9.jpg %}
-{% asset_img 10.jpg %}
-{% asset_img 11.jpg %}
-{% asset_img 12.jpg %}
-{% asset_img 13.jpg %}
+{% pcloudimg 5.jpg %}
+{% pcloudimg 6.jpg %}
+{% pcloudimg 7.jpg %}
+{% pcloudimg 8.jpg %}
+{% pcloudimg 9.jpg %}
+{% pcloudimg 10.jpg %}
+{% pcloudimg 11.jpg %}
+{% pcloudimg 12.jpg %}
+{% pcloudimg 13.jpg %}
 
 {% endgrouppicture %}
 
 
 {% grouppicture 9-7 %}
 
-{% asset_img 14.jpg %}
-{% asset_img 15.jpg %}
-{% asset_img 16.jpg %}
-{% asset_img 17.jpg %}
-{% asset_img 18.jpg %}
-{% asset_img 19.jpg %}
-{% asset_img 20.jpg %}
-{% asset_img 21.jpg %}
-{% asset_img 22.jpg %}
+{% pcloudimg 14.jpg %}
+{% pcloudimg 15.jpg %}
+{% pcloudimg 16.jpg %}
+{% pcloudimg 17.jpg %}
+{% pcloudimg 18.jpg %}
+{% pcloudimg 19.jpg %}
+{% pcloudimg 20.jpg %}
+{% pcloudimg 21.jpg %}
+{% pcloudimg 22.jpg %}
 
 {% endgrouppicture %}
 
 
 {% grouppicture 7-3 %}
 
-{% asset_img 23.jpg %}
-{% asset_img 24.jpg %}
-{% asset_img 25.jpg %}
-{% asset_img 26.jpg %}
-{% asset_img 27.jpg %}
-{% asset_img 28.jpg %}
-{% asset_img 29.jpg %}
+{% pcloudimg 23.jpg %}
+{% pcloudimg 24.jpg %}
+{% pcloudimg 25.jpg %}
+{% pcloudimg 26.jpg %}
+{% pcloudimg 27.jpg %}
+{% pcloudimg 28.jpg %}
+{% pcloudimg 29.jpg %}
 
 {% endgrouppicture %}
 
 
 {% grouppicture 4-3 %}
 
-{% asset_img 1.jpg %}
-{% asset_img 2.jpg %}
-{% asset_img 3.jpg %}
-{% asset_img 4.jpg %}
+{% pcloudimg 1.jpg %}
+{% pcloudimg 2.jpg %}
+{% pcloudimg 3.jpg %}
+{% pcloudimg 4.jpg %}
 
 {% endgrouppicture %}
