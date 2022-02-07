@@ -3,8 +3,17 @@ import shutil
 import gnupg
 from pprint import pprint
 from blind_watermark import WaterMark
-
 from PIL import Image, ImageEnhance, ImageDraw, ImageFont
+from qiniu import Auth, put_file, etag
+from dotenv import load_dotenv
+from pcloud import PyCloud
+
+load_dotenv()
+QINIU_ACCESS_KEY = os.environ.get('QINIU_ACCESS_KEY')
+QINIU_SECRET_KEY = os.environ.get('QINIU_SECRET_KEY')
+PCLOUD_EMAIL = os.environ.get('PCLOUD_EMAIL')
+PCLOUD_PASSWD = os.environ.get('PCLOUD_PASSWD')
+
 
 def convert2png(image_path, output_path):
     image = Image.open(image_path)
@@ -235,14 +244,9 @@ def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None):
 
 
 class BlogAssetManager():
-    def __init__(self, posts_dir, keyid="p1slave", logo_file="logo.png", signature="p1slave.com"):
+    def __init__(self, posts_dir, keyid="p1slave"):
         self.posts_dir = posts_dir
         self.keyid = keyid
-        self.logo_file = logo_file
-        self.signature = signature
-
-        if not os.path.isfile(self.logo_file):
-            print("Provide a valid logo file")
 
     def add_file(self, post_name, file_path):
         if not os.path.isfile(file_path):
@@ -322,7 +326,11 @@ class BlogAssetManager():
                     status = gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=decryption_dir)
                     print("Decrypting %s: %s" % (encrypted_file_path, status))
                 
-    def watermark_post_assets(self):
+    def watermark_post_assets(self, logo_file, signature, opacity=0.6):
+        if not os.path.isfile(logo_file):
+            print("Provide a valid logo file")
+            return
+
         for root_dir, dirs, files in os.walk(self.posts_dir):
             # Only encrypt files in the the decrypted folder and add new files to this folder
             if root_dir != self.posts_dir and root_dir.endswith("decrypted"):
@@ -338,11 +346,57 @@ class BlogAssetManager():
                         png_image = add_double_watermarks(
                             Image.open(decrypted_file_path), 
                             # Image.open(self.logo_file), 
-                            make_grayish_img(self.logo_file),
-                            self.signature, 
-                            opacity=0.6
+                            make_grayish_img(logo_file),
+                            signature, 
+                            opacity
                         )
                         png_image.convert("RGB").save(asset_file_path)
+
+    def upload_qiniu(self, qiniu_auth, bucket_name):
+        for root_dir, dirs, files in os.walk(self.posts_dir):
+            # Only choose the asset folder under `_posts` folder and ignore the nested folders
+            if root_dir != self.posts_dir and os.path.dirname(root_dir) == self.posts_dir:
+                print("The direcotry %s has folders: %s and files: %s" % (root_dir, dirs, files))
+                for file in files:
+                    upload_file_path = os.path.join(root_dir, file)
+                    key = os.path.basename(root_dir) + "/" + file
+                    token = qiniu_auth.upload_token(bucket_name, key, 3600)
+                    ret, info = put_file(token, key, upload_file_path, version='v2') 
+                    print(info)
+                    assert ret['key'] == key
+                    assert ret['hash'] == etag(upload_file_path)
+
+    def upload_pcloud(self, site_path="/"):
+        pcloud = PyCloud(PCLOUD_EMAIL, PCLOUD_PASSWD, endpoint="nearest")
+        root_info = pcloud.listfolder(folderid=0)
+        public_folder_info = list(filter(lambda x: 'ispublic' in x, root_info['metadata']['contents']))[0]
+        public_folderid = public_folder_info['folderid']
+        public_root_folder_name = public_folder_info['path'] # e.g. "/public"
+        
+        # e.g. "/mysites/p1slave/blog" without the root folder name
+        subfolders = site_path.split('/')         
+        folderid = public_folderid
+        # Create the subfolders under pcloud public folder
+        for subfolder_name in subfolders:
+            res = pcloud.createfolderifnotexists(folderid=folderid, name=subfolder_name)
+            folderid = res['metadata']['folderid']
+
+        for root_dir, dirs, files in os.walk(self.posts_dir):
+            # Only choose the asset folder under `_posts` folder and ignore the nested folders
+            if root_dir != self.posts_dir and os.path.dirname(root_dir) == self.posts_dir:
+                # Create post folder under site path if it does not exists
+                post_asset_foldername = os.path.split(root_dir)[-1]
+                res = pcloud.createfolderifnotexists(folderid=folderid, name=post_asset_foldername)
+
+                # TODO: The pcloud Python APIs still use the deprecated `path` instead of using `folderid`
+                # post_folderid = res['metadata']['folderid']
+                post_folder_abspath = os.path.join(public_root_folder_name, site_path, post_asset_foldername)
+
+                print("The direcotry %s has folders: %s and files: %s" % (root_dir, dirs, files))
+                for file in files:
+                    upload_file_path = os.path.join(root_dir, file)
+                    res = pcloud.uploadfile(files=[upload_file_path], path=post_folder_abspath)
+                    print(res)
 
 
 current_dir = os.getcwd()
@@ -350,11 +404,7 @@ repo_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, os.pardir))
 posts_dir = os.path.join(repo_dir, "source/_posts")
 
 keyid = "p1slave"
-logo_file = os.path.join(repo_dir, "source/images/p1slave-logo.png")
+manager = BlogAssetManager(posts_dir, keyid=keyid)
+manager.upload_pcloud(site_path="websites/p1slave")
 
-manager = BlogAssetManager(posts_dir, keyid=keyid, logo_file=logo_file, signature="p1slave.com")
 
-# manager.decrypt_post_assets()
-# manager.encrypt_post_assets()
-manager.watermark_post_assets()
-# manager.remove_watermarked_assets()

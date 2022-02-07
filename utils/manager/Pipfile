@@ -8,6 +8,9 @@ blind-watermark = "*"
 pywavelets = "*"
 python-gnupg = "*"
 pillow = "*"
+qiniu = "*"
+python-dotenv = "*"
+pcloud = "*"
 
 [dev-packages]
 
