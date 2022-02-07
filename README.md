@@ -1,15 +1,18 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/46409d33-f91f-4a4e-8828-6df8b2870eaa/deploy-status)](https://app.netlify.com/sites/p1slave/deploys)
+
 ## 欢迎来到我的博客
-大家好，我是粉红小猪p1slave，考虑到愿意写故事在这发表的用户不一定是码农群体，就算是码农也可能懒得去本地安装我的博客，甚至懒得看大段的英文教学文档。之前的文档用英文写不是因为要装逼而是习惯了，并且希望有更多人（不仅限于中文社区的朋友）可以使用和学习我的博客框架和搭建过程。
+大家好，我是粉红小猪p1slave，考虑到愿意写故事在这发表的用户不一定是码农群体，就算是码农也可能懒得去本地安装我的博客，甚至懒得看大段的英文教学文档。后面的技术教程全部用英文描述，希望有更多人（不仅限于中文社区的朋友）可以使用和学习我的博客框架搭建过程。
 
 以下是欢迎投稿的主题：
-* 与BDSM主题相关的故事，包括个人经历的叙述和心得体会，最好带有很多的细节描述，能图文并茂就更好了
-* 跨越种族，文化，国界的正常恋爱交往故事或者心路历程，当然不正常的震碎三观世界观的也十分欢迎
+* 与BDSM亚文化主题相关的故事，包括个人经历的叙述和心得体会，最好带有很多的细节描述，能图文并茂就更好了
+* 跨越种族，文化，国界的正常恋爱交往故事或者心路历程，当然不正常的震碎三观和世界观的内容也十分欢迎投稿
 * 对富有争议性两性情感话题的深入探讨和自己的独特看法
 * 任何对人类社会有价值的原创文章，你可以把我的博客看作一个分布式存储容器，就算不公开发表也可以静静的躺在草稿里
-* 一些奇怪的东西，比如川普的裸照，可以放到`source/images`的文件夹下面，说不定哪天我还会在文章里直接引用你上传的图片
+* 一些奇怪的东西，比如川普的私密照片，可以上传放到`source/images`的文件夹下面，说不定哪天我还会在文章里直接引用你上传的图片
 
 ## 如何在我的博客添加你的故事
-为了降低给我博客做贡献的门槛，我在这里就用中文也写一下如何在浏览器网页上就能修改博客发表自己故事的教程，后面还有动画教学视频来更加直观的解释如何操作。
+为了降低给我博客做贡献的门槛，我在这里就用中文也写一下如何在浏览器网页上就能修改博客发表自己故事的教程，后面还有动画教学视频来更加直观的解释如何操作。其实就算这样还是有人嫌麻烦，后面考虑用GitHub的SDK做个简单的页面，输入标题，日期，内容就可以傻瓜式一键生成一个PR发布，再不行就直接把内容打包发我邮箱或者私信。
+
 * 首先你需要注册一个Github账号，然后搜索到我的博客[p1slave/blog](https://github.com/p1slave/blog)
 * 点击fork就可以把我的博客的当前版本拷贝一份到你自己的账号下，当我的博客有更新的时候，你本地的版本是保持不变的，除非你pull我最新的代码合并到你的旧版本代码
 * 在网页端指定位置按照规定写一个`external-contribution-xxx.md`这样的新文件并加上你的文章内容，文章前面必须加上标题，时间，标签等数据，具体可以按照其他文章的开头格式作为模板
@@ -106,11 +109,14 @@ Run Hexo blog locally with commands:
 hexo server # or `hexo s`
 ```
 
-Generate a new post if you have a new story to share. The post title should start with `external-contribution-` and please follow the naming convention of my other blog posts for the rest of your post title. The Chinese version of your post title should start with `XXX投稿 - 你的文章标题` to be consistent. 
+Generate a new post if you have a new story to share or a draft if you are not ready to publish. The post title should start with `external-contribution-` and please follow the naming convention of my other blog posts for the rest of your post title. The Chinese version of your post title should start with `XXX投稿 - 你的文章标题` to be consistent. 
 
 ```bash
 # Here is a good example for naming
 hexo new post external-contribution-yourname-crushed-under-the-ass-of-some-goddesses 
+
+# Save your post as draft
+hexo new draft external-contribution-yourname-crushed-under-the-ass-of-some-goddesses
 ```
 
 After the execution of the command above, a new Markdown post file will be created in `_posts` folder and inside `_post` folder there is another folder with the exact same name of your post to hold assets. Put your photos and videos in the corresponding folder and they can be accessed directly in your post without specifying the relative path.
@@ -132,6 +138,6 @@ The complete documentation about how to use tags can be found in [Next theme](ht
 
 
 ## Deployment
-I deploy my blog to [Netlify](www.netlify.com) with 100GB bandwidth for free and actually don't have to do anything for the deployment. Every time I push the latest commits to my repo, the webhook will automatically pull the latest commit from master branch to Netlify and build the blog. Netlify even builds your blog for every pull request and provides a preview link. It's the best solution I found so far and hope I don't have to pay extra money once I have more visitors and traffic beyond 100GB.  
+I deploy my blog to [Netlify](www.netlify.com) with 100GB bandwidth for free and actually don't have to do anything for the deployment. Every time I push the latest commits to my repo, the webhook will automatically pull the latest commit from master branch to Netlify and build the blog. Netlify even builds your blog for every pull request and provides a preview link. It's the best solution for publishing blog I found so far and hope I don't have to pay extra money once I have more visitors and traffic beyond 100GB.  
 
-If your pull request is merged into the master branch but you accidentally commit a photo of you holding your dick and ID card, you are screwed because you cannot reverse the commit without my permission. Send me an Github issue, email or DM immedicately and I will help you to take it down before more people see it. Be careful about the things you want to post online because now anyone can access and analyze the information. Don't tell your friends in your real life about your alt life unless you are ready to take the risk.
+If your pull request is merged into the master branch but you accidentally commit a photo of you holding your dick and ID card, you are screwed because you cannot reverse the commit without my permission. Send me an Github issue, email or DM on social media immedicately and I will help you to take it down before more people see it. Be careful about the things you want to post online because now anyone can access and analyze the information. Don't tell your friends in your real life about your alt life unless you are ready to take the risk.
