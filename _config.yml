@@ -150,6 +150,11 @@ encrypt: # hexo-blog-encrypt
   wrong_pass_message: Oh, this is an invalid password. Check and try again, please.
   wrong_hash_message: Oh, these decrypted content cannot be verified, but you can still have a look.
 
+# pcloud
+pcloud:
+  host: https://filedn.com
+  relative_path: lVPXJ6zBrsv7KNrX9DO8bMh/websites/p1slave
+
 # Watermark
 # watermark:
 #     enable: true
