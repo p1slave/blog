@@ -3,7 +3,7 @@ import shutil
 import gnupg
 from pprint import pprint
 from blind_watermark import WaterMark
-from PIL import Image, ImageEnhance, ImageDraw, ImageFont
+from PIL import Image, ImageEnhance, ImageDraw, ImageFont, ImageFilter
 from qiniu import Auth, put_file, etag
 from dotenv import load_dotenv
 from pcloud import PyCloud
@@ -109,7 +109,7 @@ def reduce_opacity(image, opacity):
 
     return image
 
-def add_string_watermark(image, wm_str, opacity=0.5):
+def add_string_watermark(image, wm_str, position=(0, 0), opacity=0.5):
     assert opacity >= 0 and opacity <= 1
     # Set the opacity lower than 0.5 ideally to avoid covering the original photo
     if image.mode != 'RGBA':
@@ -123,7 +123,7 @@ def add_string_watermark(image, wm_str, opacity=0.5):
     draw = ImageDraw.Draw(txt)
     font = ImageFont.truetype("party-confetti.ttf", font_size)
     # Do not use white text (255, 255, 255) because it won't be visible on white background
-    draw.text((0, 0), wm_str, (225, 225, 225, 255), font=font)
+    draw.text(position, wm_str, (225, 225, 225, 255), font=font)
     
     txt = reduce_opacity(txt, opacity)
     
@@ -134,7 +134,7 @@ def add_string_watermark(image, wm_str, opacity=0.5):
     watermark_image = Image.composite(txt, image, txt)
     return watermark_image
 
-def add_watermark(image, mark, opacity=0.5):
+def add_watermark(image, mark, opacity=0.5, position="CORNER"):
     if opacity < 1:
         mark = reduce_opacity(mark, opacity)
 
@@ -147,24 +147,58 @@ def add_watermark(image, mark, opacity=0.5):
     w = image.size[0]
     h = image.size[1]
 
+    if position == "CORNER":
+        ratio_constant = 3
+    else:
+        ratio_constant = 1.5
+
     # The watermark size is set to 1/3 of relatively shorter edge of original photo
-    ratio = (w / wm if w / wm < h / hm else h / hm) / 3
+    ratio = (w / wm if w / wm < h / hm else h / hm) / ratio_constant
 
     layer = Image.new('RGBA', image.size, (0, 0, 0, 0))
     mark = mark.resize((int(wm*ratio), int(hm*ratio)))
 
-    # Put the watermark at the bottom right corner by default
-    layer.paste(mark, (w - int(wm*ratio), h - int(hm*ratio)))
-    # layer.paste(mark, (0, 0))
+    if position == "CORNER":
+        # Put the watermark at the bottom right corner by default
+        layer.paste(mark, (w - int(wm*ratio), h - int(hm*ratio)))
+        # layer.paste(mark, (0, 0))
+    else:
+        layer.paste(mark, (int((w - wm*ratio)/2), int((h - hm*ratio)/2)))
 
     return Image.composite(layer, image, layer)
 
 def add_double_watermarks(image, img_mark, str_mark, opacity=0.8):
-    str_wm_image = add_string_watermark(image, str_mark, opacity)
+    str_wm_image = add_string_watermark(image, str_mark, opacity=opacity)
     return add_watermark(str_wm_image, img_mark, opacity)
 
+def gen_preview_image(file_path, paywall_img_path, output_dir=None, radius=2):
+    dirname, filename = os.path.split(file_path) 
+    pre, _ = os.path.splitext(filename)
+
+    if output_dir is None:
+        # Create a new folder to hold all preview files under the same folder.
+        output_path = os.path.join(dirname, "preview", pre + "-preview" + ".jpg")
+        preview_dir = os.path.join(dirname, "preview")
+        if not os.path.isdir(preview_dir):
+            os.mkdir(preview_dir)
+    else:
+        # Create the output folder if it does not exist
+        if not os.path.isdir(output_dir):
+            os.mkdir(output_dir)
+        output_path = os.path.join(output_dir, pre + "-preview" + ".jpg")
+
+    if os.path.isfile(output_path):
+        os.remove(output_path)
+
+    image = Image.open(file_path) 
+    blurred_img = image.filter(ImageFilter.GaussianBlur(radius))
+    paywall_img = Image.open(paywall_img_path)
+    final_image = add_watermark(blurred_img, paywall_img, position="CENTER")
+    final_image.convert("RGB").save(output_path)
+    return output_path
+
 # Use the public key (keyid) of the recipient to encrypt the file
-def gpg_encrypt_file(file_path, keyid, output_dir=None):
+def gpg_encrypt_file(file_path, keyid, output_dir=None, overwrite=False):
     gpg = gnupg.GPG()
     # pprint(gpg.list_keys())
     stream = open(file_path, "rb")
@@ -178,7 +212,7 @@ def gpg_encrypt_file(file_path, keyid, output_dir=None):
 
     if output_dir is None:
         # Create a new folder to hold all encrypted files if output folder is not specified
-        output_path = os.path.join(dirname, "encrypted", filename + ".asc")
+        output_file_path = os.path.join(dirname, "encrypted", filename + ".asc")
         encrypted_dir = os.path.join(dirname, "encrypted")
         if not os.path.isdir(encrypted_dir):
             os.mkdir(encrypted_dir)
@@ -186,19 +220,26 @@ def gpg_encrypt_file(file_path, keyid, output_dir=None):
         # Create the output folder if it does not exist
         if not os.path.isdir(output_dir):
             os.mkdir(output_dir)
-        output_path = os.path.join(output_dir, filename + ".asc")
+        output_file_path = os.path.join(output_dir, filename + ".asc")
 
-    if os.path.isfile(output_path):
-        os.remove(output_path)
+    # File does not exist or needs to be overwritten
+    if not os.path.isfile(output_file_path) or overwrite:
+        if os.path.isfile(output_file_path) and overwrite:
+            check = input("Are you sure you want to overwrite the existing encrypted file? (y/n)")
+            if not check.lower().startswith('y'):
+                return format("Choose not to overwrite the existing encrypted file")
+            else:
+                os.remove(output_file_path)
 
-    f = open(output_path, "wb")
-    f.write(crypt.data)
-    f.close()
+        f = open(output_file_path, "wb")
+        f.write(crypt.data)
+        f.close()
+        return crypt.status
 
-    return crypt.status
+    return format("File %s already exists and will not be overwritten" % output_file_path)
 
 # The passphrase will be cached after the first successful decryption
-def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None):
+def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None, overwrite=False):
     gpg = gnupg.GPG()
     stream = open(encrypted_file_path, "rb")
     crypt = gpg.decrypt_file(stream, passphrase=passphrase)
@@ -223,25 +264,21 @@ def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None):
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    output_path = os.path.join(output_dir, original_filename)
+    output_file_path = os.path.join(output_dir, original_filename)
 
-    if os.path.isfile(output_path):
-        os.remove(output_path)
+    if not os.path.isfile(output_file_path) or overwrite:
+        if os.path.isfile(output_file_path) and overwrite:
+            check = input("Are you sure you want to overwrite the existing decrypted file? (y/n)")
+            if not check.lower().startswith('y'):
+                return format("Choose not to overwrite the existing decrypted file")
+            else:
+                os.remove(output_file_path)
+        f = open(output_file_path, "wb")
+        f.write(crypt.data)
+        f.close()
+        return crypt.status
 
-    f = open(output_path, "wb")
-    f.write(crypt.data)
-    f.close()
-
-    return crypt.status
-
-
-# print(gpg_encrypt_file("hello.txt", "p1slave"))
-# print(gpg_decrypt_file("encrypted/hello.txt.asc", "", output_dir="decrypted"))
-
-# add_string_watermark(image, "p1slave.com", opacity=0.5).save("watermarked.png", "PNG")
-# wm_image = add_string_watermark(image, "p1slave.com", opacity=0.5)
-# add_double_watermarks(image, mark, "p1slave.com", opacity=0.8).save("watermarked.png", "PNG")
-
+    return format("File %s already exists and will not be overwritten" % output_file_path)
 
 class BlogAssetManager():
     def __init__(self, posts_dir, keyid="p1slave"):
@@ -282,6 +319,15 @@ class BlogAssetManager():
         status = gpg_encrypt_file(file_path, keyid, output_dir=encryption_dir)
         print("Encrypting file as %s: %s" % (encrypted_file, status))
 
+    def remove_asset_folders(self):
+        for root_dir, dirs, files in os.walk(self.posts_dir):
+            # Delete all files in the direct subfolders of `_posts` folder
+            if os.path.dirname(root_dir) == self.posts_dir:
+                print("Deleting files in %s" % root_dir)
+                for file in files:
+                    print("Asset file: %s is removed" % os.path.join(root_dir, file))
+                    os.remove(os.path.join(root_dir, file))
+
     def remove_encryption_folders(self):
         for root_dir, _, _ in os.walk(self.posts_dir):
             # Remove all folders containing encrypted files
@@ -294,14 +340,36 @@ class BlogAssetManager():
             if root_dir.endswith("decrypted"):
                 shutil.rmtree(root_dir)
 
+    def remove_preview_folders(self):
+        for root_dir, _, _ in os.walk(self.posts_dir):
+            # Remove all folders containing decrypted files
+            if root_dir.endswith("preview"):
+                shutil.rmtree(root_dir)
+
     def remove_watermarked_assets(self):
         for root_dir, dirs, files in os.walk(self.posts_dir):
             # Find the asset folder for each post
             if root_dir != self.posts_dir and os.path.dirname(root_dir) == self.posts_dir:
                 for file in files:
                     os.remove(os.path.join(root_dir, file))
+    
+    def create_preview_images(self, paywall_img_path, radius=22):
+        if not os.path.isfile(paywall_img_path):
+            print("Paywall image does not exist: " + paywall_img_path)
+            return
 
-    def encrypt_post_assets(self):
+        # Blur the images and add pay-to-view watermarks 
+        for root_dir, dirs, files in os.walk(self.posts_dir):
+            # Only create previews for photos in the decrypted folder and add new files to preview folder
+            if root_dir != self.posts_dir and root_dir.endswith("decrypted"):
+                print("The direcotry %s has folders: %s and files: %s" % (root_dir, dirs, files))
+                preview_dir = os.path.abspath(os.path.join(root_dir, os.pardir, "preview"))
+                for file in files:
+                    original_file_path = os.path.join(root_dir, file)
+                    blurred_image_path = gen_preview_image(original_file_path, paywall_img_path, preview_dir, radius)
+                    print("Generated preview image %s" % blurred_image_path)
+
+    def encrypt_post_assets(self, overwrite=False):
         for root_dir, dirs, files in os.walk(self.posts_dir):
             # Only encrypt files in the the decrypted folder and add new files to this folder
             if root_dir != self.posts_dir and root_dir.endswith("decrypted"):
@@ -310,10 +378,10 @@ class BlogAssetManager():
                 for file in files:
                     file_path = os.path.join(root_dir, file)
                     # The existing encrypted file will be overwritten
-                    status = gpg_encrypt_file(file_path, keyid, output_dir=encryption_dir)
-                    print("Encrypting %s: %s" % (file_path, status))
+                    status = gpg_encrypt_file(file_path, keyid, output_dir=encryption_dir, overwrite=overwrite)
+                    print("Encrypting %s \n%s" % (file_path, status))
 
-    def decrypt_post_assets(self):
+    def decrypt_post_assets(self, overwrite=False):
         passphrase = input("Enter passphrase for GPG private key: ")
         for root_dir, _, files in os.walk(self.posts_dir):
             if root_dir.endswith("encrypted"):
@@ -323,10 +391,11 @@ class BlogAssetManager():
                 for encrypted_file in files:
                     encrypted_file_path = os.path.join(root_dir, encrypted_file)
                     # The existing decrypted file will be overwritten
-                    status = gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=decryption_dir)
+                    status = gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=decryption_dir, overwrite=overwrite)
                     print("Decrypting %s: %s" % (encrypted_file_path, status))
                 
-    def watermark_post_assets(self, logo_file, signature, opacity=0.6):
+    # If the file is selected for preview then don't watermark it but copy the preview file to asset folder
+    def watermark_post_assets(self, logo_file, signature, opacity=0.6, preview_selected={}, radius=22, overwrite=False):
         if not os.path.isfile(logo_file):
             print("Provide a valid logo file")
             return
@@ -336,23 +405,60 @@ class BlogAssetManager():
             if root_dir != self.posts_dir and root_dir.endswith("decrypted"):
                 print("The direcotry %s has folders: %s and files: %s" % (root_dir, dirs, files))
                 # Asset folder is the parent directory of decrypted folder to hold watermarked files
-                asset_dir = os.path.abspath(os.path.join(root_dir, os.pardir))
+                asset_dir = os.path.dirname(root_dir)
+                _, asset_folder_name = os.path.split(asset_dir)
+
+                preview_files = []
+                if asset_folder_name in preview_selected:
+                    preview_files = preview_selected[asset_folder_name]
+
                 for file in files:
-                    decrypted_file_path = os.path.join(root_dir, file)
-                    pre, _ = os.path.splitext(file)
-                    # Convert to JPEG format to reduce the size
-                    asset_file_path = os.path.join(asset_dir, pre + ".jpg")
                     if file.split('.')[-1] in ["jpg", "jpeg", "png"]:
-                        png_image = add_double_watermarks(
+                        decrypted_file_path = os.path.join(root_dir, file)
+                        watermarked_png_image = add_double_watermarks(
                             Image.open(decrypted_file_path), 
                             # Image.open(self.logo_file), 
                             make_grayish_img(logo_file),
                             signature, 
                             opacity
                         )
-                        png_image.convert("RGB").save(asset_file_path)
 
-    def upload_qiniu(self, qiniu_auth, bucket_name):
+                        pre, _ = os.path.splitext(file)
+
+                        if file in preview_files:
+                            # Add a preview file to the asset folder and don't watermark it because it is already blurred
+                            gen_preview_image(decrypted_file_path, paywall_img_path, asset_dir, radius)
+                            # Create a separate folder for the watermarked images to uploaded to jianshou.online
+                            jianshou_asset_dir = os.path.join(asset_dir, "jianshou")
+                            if not os.path.isdir(jianshou_asset_dir):
+                                os.mkdir(jianshou_asset_dir)
+                            jianshou_asset_file_path = os.path.join(jianshou_asset_dir, pre + ".jpg")
+                            
+                            if not os.path.isfile(jianshou_asset_file_path) or overwrite:
+                                if os.path.isfile(jianshou_asset_file_path) and overwrite:
+                                    check = input("Are you sure you want to overwrite the existing jianshou file? (y/n)")
+                                    if not check.lower().startswith('y'):
+                                        continue
+                                    else:
+                                        os.remove(jianshou_asset_file_path)
+
+                                watermarked_png_image.convert("RGB").save(jianshou_asset_file_path)
+                        else:
+                            # Convert to JPEG format to reduce the size
+                            asset_file_path = os.path.join(asset_dir, pre + ".jpg")
+                            if not os.path.isfile(asset_file_path) or overwrite:
+                                if os.path.isfile(asset_file_path) and overwrite:
+                                    check = input("Are you sure you want to overwrite the existing asset file? (y/n)")
+                                    if not check.lower().startswith('y'):
+                                        continue
+                                    else:
+                                        os.remove(asset_file_path)
+
+                                watermarked_png_image.convert("RGB").save(asset_file_path)
+
+    # I probably won't use qiniu anymore because the uploading is slow.
+    # The local government also requires domain registration and identity verification.
+    def upload_qiniu(self, qiniu_auth, bucket_name, overwrite=False):
         for root_dir, dirs, files in os.walk(self.posts_dir):
             # Only choose the asset folder under `_posts` folder and ignore the nested folders
             if root_dir != self.posts_dir and os.path.dirname(root_dir) == self.posts_dir:
@@ -366,7 +472,7 @@ class BlogAssetManager():
                     assert ret['key'] == key
                     assert ret['hash'] == etag(upload_file_path)
 
-    def upload_pcloud(self, site_path="/"):
+    def upload_pcloud(self, site_path="/", overwrite=False):
         pcloud = PyCloud(PCLOUD_EMAIL, PCLOUD_PASSWD, endpoint="nearest")
         root_info = pcloud.listfolder(folderid=0)
         public_folder_info = list(filter(lambda x: 'ispublic' in x, root_info['metadata']['contents']))[0]
@@ -404,7 +510,35 @@ repo_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir, os.pardir))
 posts_dir = os.path.join(repo_dir, "source/_posts")
 
 keyid = "p1slave"
+paywall_img_path = os.path.join(repo_dir, "source/images/watermarks/paywall.jpg")
+logo_img_path = os.path.join(repo_dir, "source/images/p1slave-logo.png")
 manager = BlogAssetManager(posts_dir, keyid=keyid)
+
+# The only source of truth lies in the folder of encrypted files
+# Do the encryption for the new added files but don't overwrite the existing encrypted files
+manager.encrypt_post_assets()
+# manager.decrypt_post_assets()
+
+manager.remove_asset_folders()
+# manager.remove_preview_folders()
+
+# manager.remove_decryption_folders()
+# Don't generate preview for all images
+# manager.create_preview_images(paywall_img_path, radius=22)
+
+# manager.decrypt_post_assets()
+
+preview_selected = {
+    "pig-smells-like-a-dead-person-lol": ["3.png"]
+}
+
+# Watermark all pictures in the asset folder except the selected preview images
+manager.watermark_post_assets(
+    logo_img_path, 
+    signature="p1slave", 
+    opacity=0.5, 
+    preview_selected=preview_selected
+)
+
+# Upload all files in the asset folder to pcloud
 manager.upload_pcloud(site_path="websites/p1slave")
-
-
