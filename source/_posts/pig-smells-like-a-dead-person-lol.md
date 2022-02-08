@@ -25,9 +25,14 @@ tags:
 顺便附上一张聊天截图和模特女神以前发我的图片：
 
 
-{% grouppicture 2-2 %}
+{% grouppicture 3-3 %}
 
 {% pcloudimg 1.jpg %}
 {% pcloudimg 2.jpg %}
+{% pcloudimg 3-preview.jpg %}
 
 {% endgrouppicture %}
+
+这里放一张模特女神今天发我的在镜子前对我竖中指的自拍，由于是付费图片这次她的脸没有打码但请不要外传！用支付宝和微信支付后即可查看高清图片一睹芳容，不过去年她经常去美黑没有之前那么白皙了，这边审美标准就是这样也没办法。
+
+{% jianshou lkpaWO5x %}
