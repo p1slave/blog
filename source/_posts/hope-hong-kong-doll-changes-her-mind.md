@@ -14,11 +14,11 @@ tags:
 
 本来还幻想着以后能不能和HK玩偶搞点合作，人家有男朋友并且出镜她的视频我也明白，所以我不会有非分之想，而是礼貌的询问能不能在kink方面的视频合作，比如合作一个cuckolding的视频。我想如果对方没有兴趣的话，可以选择直接忽略或者告知不想合作也行，不至于拉黑吧。我觉得开发一点新题材也能帮她的账号和工作室提升流量，顺便我也打点自己的小算盘攒点粉丝，没想到被拉黑了，美梦直接破灭。。
 
+<!-- more -->
+
 <blockquote class="twitter-tweet"><p lang="zh" dir="ltr">Kiss it💋<br>(过来 给我捡起来 <a href="https://t.co/psc60saiD9">pic.twitter.com/psc60saiD9</a></p>&mdash; HongKongDoll (@HongKong_Doll) <a href="https://twitter.com/HongKong_Doll/status/1477949621037060097?ref_src=twsrc%5Etfw">January 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 首先我也不是空穴来风，见到个女的就问能不能给对方当狗，毕竟你发了上面的推文置顶，很难让人不联想到和BDSM相关的场景和觉得你对这方面的fetish也有兴趣，当然没有兴趣的话也不需要理会，这么大的网络流量下能看到我的评论也都算是我中奖了。
-
-<!-- more -->
 
 虽然推特等公共社交平台上SB特别多，但之前遇到过美国的content creator都是很礼貌的，既然是SW （Sex Worker不是卖淫而是网络色情明星的意思）一般都对粉丝的合理要求还有合作的事情抱着开放的心态，很乐意和圈内的同行交流合作。我机缘巧合遇到的美国SW有的都甚至非常期待和我合作，并且她还是有男朋友的，处于一段monogamous relationship，在男朋友同意的情况下才拍摄onlyfans，最后她男朋友也出镜了，这个和HK玩偶的情况很像。我和她合作拍的fetish小电影还卖出了几十份帮她赚了几百块钱，同时涨了几百上千的粉丝，和她聊的也不错，她也很高兴希望以后有机会再合作一次。如果对方不愿意的话，我也完全不会强求骚扰对方，默默点赞订阅就是对她们的认可和支持最好的方式了。
 
