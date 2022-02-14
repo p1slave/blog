@@ -11,6 +11,10 @@ pillow = "*"
 qiniu = "*"
 python-dotenv = "*"
 pcloud = "*"
+jianshou-client = "*"
+boto3 = "*"
+pytest = "*"
+moviepy = "*"
 
 [dev-packages]
 
