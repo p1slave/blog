@@ -87,10 +87,12 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
-  GitHub: https://github.com/p1slave || fab fa-github
-  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
   Twitter: https://twitter.com/p1slave || fab fa-twitter
-  Keybase: https://keybase.io/p1slave || fab fa-keybase
+  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
+  Telegram官方频道: https://t.me/p1slave_official || fab fa-telegram
+  Telegram交流群: https://t.me/p1slave_chatroom || fab fa-telegram-plane
+  GitHub: https://github.com/p1slave || fab fa-github
+  Keybase认证: https://keybase.io/p1slave || fab fa-keybase
   捐款链接: /donation/ || fa fa-donate
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
