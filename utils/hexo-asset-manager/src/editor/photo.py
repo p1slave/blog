@@ -156,29 +156,3 @@ def add_watermark(image, mark, opacity=0.5, position="CORNER"):
 def add_double_watermarks(image, img_mark, str_mark, opacity=0.8):
     str_wm_image = add_string_watermark(image, str_mark, opacity=opacity)
     return add_watermark(str_wm_image, img_mark, opacity)
-
-def gen_preview_image(file_path, paywall_img_path, output_dir=None, radius=2):
-    dirname, filename = os.path.split(file_path) 
-    pre, _ = os.path.splitext(filename)
-
-    if output_dir is None:
-        # Create a new folder to hold all preview files under the same folder.
-        output_path = os.path.join(dirname, "preview", pre + "-preview" + ".jpg")
-        preview_dir = os.path.join(dirname, "preview")
-        if not os.path.isdir(preview_dir):
-            os.mkdir(preview_dir)
-    else:
-        # Create the output folder if it does not exist
-        if not os.path.isdir(output_dir):
-            os.mkdir(output_dir)
-        output_path = os.path.join(output_dir, pre + "-preview" + ".jpg")
-
-    if os.path.isfile(output_path):
-        os.remove(output_path)
-
-    image = Image.open(file_path) 
-    blurred_img = image.filter(ImageFilter.GaussianBlur(radius))
-    paywall_img = Image.open(paywall_img_path)
-    final_image = add_watermark(blurred_img, paywall_img, position="CENTER")
-    final_image.convert("RGB").save(output_path)
-    return output_path

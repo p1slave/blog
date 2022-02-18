@@ -2,7 +2,6 @@
 import os
 import gnupg
 import logging
-from pprint import pprint
 
 # Use the public key (keyid) of the recipient to encrypt the file
 def gpg_encrypt_file(file_path, keyid, output_dir=None, overwrite=False):
@@ -31,27 +30,23 @@ def gpg_encrypt_file(file_path, keyid, output_dir=None, overwrite=False):
             os.mkdir(output_dir)
         output_file_path = os.path.join(output_dir, filename + ".asc")
 
-    # File does not exist or needs to be overwritten
-    if not os.path.isfile(output_file_path) or overwrite:
-        if os.path.isfile(output_file_path) and overwrite:
-            check = input("Are you sure you want to overwrite the existing encrypted file? (y/n)")
-            if not check.lower().startswith('y'):
-                message = format("Choose not to overwrite the existing encrypted file")
-                logging.info(message)
-                return None
-            else:
-                os.remove(output_file_path)
+    if not overwrite and os.path.isfile(output_file_path): 
+        check = input("Encrypted file %s already exists. Overwrite? (y/n)" % output_file_path)
+        if not check.startswith("y"):
+            logging.info("Choose not to overwrite the existing encrypted file")
+            return
+        
+    f = open(output_file_path, "wb")
+    f.write(crypt.data)
+    f.close()
+    logging.info(crypt.status)
 
-        f = open(output_file_path, "wb")
-        f.write(crypt.data)
-        f.close()
-        logging.info(crypt.status)
-        return output_file_path
+    if os.path.isfile(output_file_path):
+        logging.info("File %s already exists and will not be overwritten" % output_file_path)
+    else:
+        logging.info("The new encrypted file is %s" % output_file_path)
 
-    message = format("File %s already exists and will not be overwritten" % output_file_path)
-    logging.info(message)
-    return None
-
+    return output_file_path
 
 # The passphrase will be cached after the first successful decryption
 def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None, overwrite=False):
@@ -81,16 +76,21 @@ def gpg_decrypt_file(encrypted_file_path, passphrase, output_dir=None, overwrite
 
     output_file_path = os.path.join(output_dir, original_filename)
 
-    if not os.path.isfile(output_file_path) or overwrite:
-        if os.path.isfile(output_file_path) and overwrite:
-            check = input("Are you sure you want to overwrite the existing decrypted file? (y/n)")
-            if not check.lower().startswith('y'):
-                return format("Choose not to overwrite the existing decrypted file")
-            else:
-                os.remove(output_file_path)
-        f = open(output_file_path, "wb")
-        f.write(crypt.data)
-        f.close()
-        return crypt.status
+    if not overwrite and os.path.isfile(output_file_path): 
+        check = input("Decrypted file %s already exists. Overwrite? (y/n)" % output_file_path)
+        if not check.startswith("y"):
+            message = format("Choose not to overwrite the existing encrypted file")
+            logging.info(message)
+            return
 
-    return format("File %s already exists and will not be overwritten" % output_file_path)
+    f = open(output_file_path, "wb")
+    f.write(crypt.data)
+    f.close()
+    logging.info(crypt.status)
+
+    if os.path.isfile(output_file_path):
+        logging.info("File %s already exists and will not be overwritten" % output_file_path)
+    else:
+        logging.info("The new decrypted file is %s" % output_file_path)
+
+    return output_file_path

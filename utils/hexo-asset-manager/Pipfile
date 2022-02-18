@@ -15,6 +15,7 @@ jianshou-client = "*"
 boto3 = "*"
 pytest = "*"
 moviepy = "*"
+numpy = "*"
 
 [dev-packages]
 
