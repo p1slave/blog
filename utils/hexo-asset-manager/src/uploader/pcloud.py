@@ -15,12 +15,10 @@ class PcloudUploader():
 
 		return public_folderid, public_root_folder_name
 
-	# By default, do not create path and return the folder id of the root of public folder
-	def create_path(self, site_path="/"):
-		public_folderid, _ = self.find_public_folder()
+	def create_path(self, init_folderid, dir_path="/"):
 		# e.g. "/mysites/p1slave/blog" without the root folder name
-		subfolders = site_path.split('/')         
-		folderid = public_folderid
+		subfolders = dir_path.split('/')         
+		folderid = init_folderid
 		# Create the subfolders under pcloud public folder
 		for subfolder_name in subfolders:
 			# In case the user put slash at the end or the beginning of the path
@@ -28,4 +26,10 @@ class PcloudUploader():
 				res = self.pcloud.createfolderifnotexists(folderid=folderid, name=subfolder_name)
 				folderid = res['metadata']['folderid']
 
+		return folderid
+
+	# By default, do not create path and return the folder id of the root of public folder
+	def create_path_from_public_folder(self, site_path="/"):
+		public_folderid, _ = self.find_public_folder()
+		folderid = self.create_path(public_folderid, site_path)
 		return folderid
