@@ -1,0 +1,87 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 18rem;
+    height: 26rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type="text"], input[type="email"], select {
+  padding: 10px 15px;
+  border: 1px solid #888;
+  border-radius: 3px;
+  width: 100%;
+  box-shadow: 2px 2px 0 #f3f3f3;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  text-align: center;
+}
+input:focus {
+border-color: #0055d4;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+.button {
+  background: #0055d4;
+  padding: 15px 30px;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  display: inline-block;
+  min-width: 150px;
+  font-size: 1.1em;
+  text-align: center;
+}
+.button:hover {
+  background: #333;
+  color: #fff;
+}
+/* Hide the subscribe button */
+.trigger {
+    visibility: hidden;
+}
