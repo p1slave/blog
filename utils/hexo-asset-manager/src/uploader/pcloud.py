@@ -1,4 +1,5 @@
 
+import logging
 import os
 import hashlib
 from pcloud import PyCloud
@@ -33,3 +34,15 @@ class PcloudUploader():
 		public_folderid, _ = self.find_public_folder()
 		folderid = self.create_path(public_folderid, site_path)
 		return folderid
+
+	# Add index.html to every folder so the content of subfolders won't be listed
+	def add_empty_index_html(self, folderid=0, folder_path="/"):
+		root_info = self.pcloud.listfolder(folderid=folderid)
+		public_folder_infos = list(filter(lambda x: 'ispublic' in x and x['isfolder'] == True, root_info['metadata']['contents']))
+		# Put an empty index.html to the current folder and recursively add it to all subfolders
+		self.pcloud.uploadfile(data=b"", filename="index.html", path=folder_path)
+		logging.info("Add index.html to {}".format(folder_path))
+		for public_folder_info in public_folder_infos:
+			subfolderid = public_folder_info['folderid']
+			subfolder_path = os.path.join(folder_path, public_folder_info['name'])
+			self.add_empty_index_html(folderid=subfolderid, folder_path=subfolder_path)
