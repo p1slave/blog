@@ -328,6 +328,13 @@ class AutomatedBlogAssetManager(PostAssetManager):
                 for item_name in preview_selected[post_name]:
                     preview_image_links = []
                     payinfo_image_links = []
+
+                    # Preview image links for the whole bundle
+                    preview_bundle_images = preview_selected[post_name][item_name].get("preview_images", {})
+                    for filename in preview_bundle_images:
+                        bundle_preview_img_link = preview_bundle_images[filename]["link"]
+                        preview_image_links.append(bundle_preview_img_link)
+
                     for filename in preview_selected[post_name][item_name].get("images", {}):
                         # Preview img links
                         preview_filename = filename.split(".")[0] + "-preview.jpg"
