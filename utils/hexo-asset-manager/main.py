@@ -20,20 +20,22 @@ manager = AutomatedBlogAssetManager(posts_dir, keyid=keyid)
 # uploader = PcloudUploader(PCLOUD_EMAIL, PCLOUD_PASSWD)
 # uploader.add_empty_index_html()
 
-# The only source of truth lies in the folder of encrypted files
-# Do the encryption for the new added files but don't overwrite the existing encrypted files
-# manager.encrypt_post_assets()
+def process_assets():
+	manager.encrypt_post_assets()
 
-# manager.generate_assets(logo_img_path, paywall_img_path, 
-# 	opacity=0.5, 
-# 	signature="p1slave.com", 
-# 	preview_selected=preview_selected
-# )
+	f = open("preview.json")
+	preview_selected = json.load(f)
+	manager.generate_assets(logo_img_path, paywall_img_path, 
+		opacity=0.5, 
+		signature="p1slave.com", 
+		preview_selected=preview_selected,
+
+	)
+
+process_assets()
 
 # Upload all files in the asset folder to pcloud
+# TODO: Only upload the new pictures not the existing ones
 # manager.upload_pcloud(site_path="websites/p1slave")
 
-# f = open("preview.json")
-# preview_selected = json.load(f)
 # manager.upload_jianshou(preview_selected=preview_selected)
-

@@ -104,17 +104,19 @@ class AutomatedBlogAssetManager(PostAssetManager):
     def remove_watermarked_assets(self):
         self.remove_assets()
 
-    def generate_assets(self, logo_img_path, paywall_img_path, opacity=0.5, signature="watermarked", preview_selected={}):
+    def generate_assets(self, logo_img_path, paywall_img_path, opacity=0.5, signature="watermarked", preview_selected={}, overwrite=False):
         if not os.path.isfile(logo_img_path) or not os.path.isfile(paywall_img_path):
             self.logger.error("Logo or paywall image not found")
             return
 
-        # Remove all folders except the encrypted folder
-        self.remove_decryption_folders()
-        self.remove_jianshou_folders()        
-        self.remove_preview_folders()
-        self.remove_watermarked_assets()
+        if overwrite:
+            # Remove all folders except the encrypted folder
+            self.remove_decryption_folders()
+            self.remove_jianshou_folders()        
+            self.remove_preview_folders()
+            self.remove_watermarked_assets()
 
+        # By default it won't decrypt the assets that are already decrypted
         self.decrypt_post_assets()
 
         # Watermark all pictures in the asset folder except the selected preview images go to jianshou folder
@@ -172,6 +174,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
             encryption_dir = os.path.abspath(os.path.join(decrypted_dir, os.pardir, "encrypted"))
             encrypted_file = os.path.join(encryption_dir, filename + ".asc")
 
+            # By default we do not encrypt the file if it already exists
             if os.path.isfile(encrypted_file) and skip_existing:
                 return 
 
@@ -189,14 +192,13 @@ class AutomatedBlogAssetManager(PostAssetManager):
             status = gpg_encrypt_file(original_file_path, self.keyid, output_dir=encryption_dir, overwrite=True)
             self.logger.info("The status of encryption: %s" % status)
 
-        self.logger.debug("hello world")
         self.traverse_asset_files(
             self.is_decryption_folder,
             lambda file: True,
             encrypt_file
         )
 
-    def decrypt_post_assets(self, overwrite=False):
+    def decrypt_post_assets(self, overwrite=False, skip_existing=True):
         passphrase = GPG_PASSPHRASE or input("Enter passphrase for GPG private key: ")
 
         def decrypt_file(encrypted_file_path):
@@ -204,6 +206,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
             decryption_dir = os.path.abspath(os.path.join(encrypted_dir, os.pardir, "decrypted"))
             # Remove the .asc extension from the encrypted file name
             decrypted_file = os.path.join(decryption_dir, encrypted_filename[:-4])
+
+            # By default we do not decrypt the file if it already exists
+            if os.path.isfile(decrypted_file) and skip_existing:
+                return 
 
             if not self.overwrite_all and not overwrite and os.path.isfile(decrypted_file): 
                 check = input("Decrypted file %s already exists. Overwrite? (y/n/all)" % decrypted_file)
@@ -226,7 +232,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
         )
 
     # If the file is selected for preview then don't watermark it but copy the preview file to asset folder
-    def watermark_post_assets(self, logo_file, signature, opacity=0.6, preview_selected={}, overwrite=False):
+    def watermark_post_assets(self, logo_file, signature, opacity=0.6, preview_selected={}):
         if not os.path.isfile(logo_file):
             self.logger.error("Provide a valid logo file")
             return
@@ -250,14 +256,25 @@ class AutomatedBlogAssetManager(PostAssetManager):
                 opacity
             )
 
+            is_payperview = False
+            # An item here is a bundle that contains multiple images and even videos
+            pay_items_map = preview_selected.get(asset_folder_name, {})
+            for item_name in pay_items_map:
+                item_info = pay_items_map[item_name]
+                image_map = item_info.get("images", {})
+                if filename in image_map:
+                    is_payperview = True
+
             # Put the watermarked image files in either asset folder or jianshou folder if the photo is selected for preview 
-            if asset_folder_name in preview_selected and filename in preview_selected[asset_folder_name]:
+            if is_payperview:
                 jianshou_asset_file_path = os.path.join(jianshou_asset_dir, pre + ".jpg")
                 watermarked_png_image.convert("RGB").save(jianshou_asset_file_path)
+                self.logger.info("Watermarked photo created in jianshou folder: %s" % jianshou_asset_file_path)
             else:
                 # The suffix has to be change to .jpg after conversion
                 asset_jpg_file_path = os.path.join(asset_dir, pre + ".jpg")
                 watermarked_png_image.convert("RGB").save(asset_jpg_file_path)
+                self.logger.info("Watermarked photp created in asset folder %s" % asset_jpg_file_path)
 
         self.traverse_asset_files(
             self.is_decryption_folder,
