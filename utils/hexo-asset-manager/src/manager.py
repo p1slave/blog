@@ -345,6 +345,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
                 for item_name in preview_selected[post_name]:
                     preview_image_links = []
                     payinfo_image_links = []
+                    payinfo_other_links = []
 
                     # Preview image links for the whole bundle
                     preview_bundle_images = preview_selected[post_name][item_name].get("preview_images", {})
@@ -361,10 +362,26 @@ class AutomatedBlogAssetManager(PostAssetManager):
                         paid_img_link = os.path.join(post_asset_url, asset_folder_hash, filename.split(".")[0] + ".jpg")
                         payinfo_image_links.append(paid_img_link)
 
-                    intro_html = jianshou_client.gen_typical_html_snippet(post_name + "-preview", image_links=preview_image_links)
+                    pay_links = preview_selected[post_name][item_name].get("pay_links", {})
+                    for filename in pay_links:
+                        link_info = pay_links[filename]
+                        link_url = link_info["url"]
+                        payinfo_other_links.append(link_url)
+
+                    intro_description = preview_selected[post_name][item_name].get("intro_description", None) or post_name + "-preview"
+                    intro_html = jianshou_client.gen_typical_html_snippet(
+                        intro_description, 
+                        image_links=preview_image_links
+                    )
 
                     # Show the payinfo pictures and videos in the payinfo page
-                    payinfo_photos_html = jianshou_client.gen_typical_html_snippet(post_name + "-payinfo", image_links=payinfo_image_links)
+                    pay_description = preview_selected[post_name][item_name].get("pay_description", None) or post_name + "-payinfo"
+                    payinfo_photos_html = jianshou_client.gen_typical_html_snippet(
+                        pay_description, 
+                        image_links=payinfo_image_links,
+                        other_links=payinfo_other_links
+                    )
+
                     payinfo_videos = preview_selected[post_name][item_name].get("videos", {})
                     payinfo_videos_html = ""
                     for video_name in payinfo_videos:
