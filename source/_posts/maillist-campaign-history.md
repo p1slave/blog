@@ -4,6 +4,22 @@ date: 1971-06-09 19:36:18
 tags:
 ---
 
+## 新视频更新和关于女拳的一些感想
+
+最近写了一篇文章《男S和女M结婚也需要彩礼吗》，关于女拳和彩礼的一些讨论，首次发在北美一亩三分地论坛，和十位拳师们一番激烈的讨论后直接被管理员封了号，不过幸好所有内容和评论我都存档到了自己博客，就当给大家作为娱乐看看了。
+博客链接：[https://p1slave.com/2022-04-16-bride-price-even-for-male-dom/](https://p1slave.com/2022-04-16-bride-price-even-for-male-dom/)
+
+之前发过一次邮件由于技术问题可能部分订阅者没收到，现在解决了技术问题，上次的邮件是提醒模特女神酒店调教有更新，在正式调教视频前我加入了三小段模特女神露脸和秀腿的自拍短视频，修改了字幕的字体，买过的朋友可以再次下载观看。有的朋友留的邮箱地址有点问题比如没加@或者句号写成了逗号，那么很可能输入邮箱会找不到之前的订单。有问题可以在博客找到我的各种联系方式和我沟通解决。
+
+上两周还加了一个语言羞辱的视频，是两位白女S网调她们录的一段对我的JB的评价视频，带中英文字幕，反复观看保证雅思能过6分！购买链接和预览图如下：
+[https://jianshou.online/sell/1GDaEVkQ](https://jianshou.online/sell/1GDaEVkQ)
+
+![Alt text](https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/stella/dick_rating_for_pig/preview.jpg)
+
+我的所有原创付费内容都可以扫码直接购买，合集的链接如下：
+[https://p1slave.com/goodies/](https://p1slave.com/goodies/)
+
+
 ## 同好Ballbustee投稿以及视频更新
 
 最近有一位同好在我的博客投稿，他的网名也很有意思叫做Ballbustee，投稿了他之前写的关于ballbusting的经历，本来他是放在QQ空间的但过了一段时间后有些图片都看不了了。他找的大多数都是中国人，其中有一位是不会说中文的华裔，我觉得他写的经历也不错就收录在我的博客了。
