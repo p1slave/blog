@@ -70,6 +70,12 @@ comments: false
 {% jianshou OGdRDL5g %}
 <!-- endtab -->
 
+<!-- 被国内高颜值女主绿到晕厥 -->
+偶然翻到一个以前网调当绿奴的聊天记录，推特上也好多人想看，所以就把所有语音消息录截屏录下来，开头是两段女主的自拍的视频，颜值相当在线。后面跟着三段小视频加起来一共有五分钟多，三段分别是：初次网络相识我要求验证，讲述之前藏衣柜中的绿奴并循循善诱我也当绿奴，为爱鼓掌时边叫床边骂贱狗到翻白眼。
+{% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/yezibao/cuckme/cuckme_preview.jpg %}
+{% jianshou D5bNmM5Z %}
+<!-- endtab -->
+
 <!-- tab Dick Rating 网调 -->
 这个网调视频的两位女主来自之前转发抽奖活动，没有抽到的朋友也不要感到失落哈哈，我剪了一个和她俩的网调视频，也就一分钟左右。内容是我发过去一个自己JB的照片，然后她们来打分和进行评价，又是喜欢语言羞辱同好的福利，价格也很实惠。同时还可以锻炼英语听力，反复听保证雅思能过6分，没过全额退款！
 {% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/stella/dick_rating_for_pig/preview.jpg 540 1018 %}
