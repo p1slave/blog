@@ -10,7 +10,7 @@
     "test": "hexo generate"
   },
   "hexo": {
-    "version": "6.0.0"
+    "version": "6.1.0"
   },
   "dependencies": {
     "hexo": "^6.1.0",
@@ -29,10 +29,10 @@
     "hexo-renderer-marked": "^5.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^3.0.0",
-    "hexo-tag-jianshou": "^1.0.1",
+    "hexo-tag-jianshou": "^1.0.2",
     "hexo-tag-pcloud": "^1.0.1",
     "hexo-theme-landscape": "^0.0.3",
-    "hexo-theme-next": "^8.10.1",
+    "hexo-theme-next": "^8.11.0",
     "hexo-word-counter": "^0.0.3"
   }
 }
