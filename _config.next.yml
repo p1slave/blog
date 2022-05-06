@@ -87,14 +87,16 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
+  捐款链接: /donation/ || fa fa-donate
   Twitter: https://twitter.com/p1slave || fab fa-twitter
   Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
-  付费内容全集: /goodies/ || fa fa-dollar-sign
-  Telegram官方频道: https://t.me/p1slave_official || fab fa-telegram
-  Telegram交流群: https://t.me/p1slave_chatroom || fab fa-telegram-plane
-  GitHub: https://github.com/p1slave || fab fa-github
   Keybase认证: https://keybase.io/p1slave || fab fa-keybase
-  捐款链接: /donation/ || fa fa-donate
+  付费内容全集: /goodies/ || fa fa-dollar-sign
+  独家NFT商店: https://opensea.io/p1slave || fa fa-shopping-cart
+  电报官方频道: https://t.me/p1slave_official || fab fa-telegram
+  电报交流群: https://t.me/p1slave_chatroom || fab fa-telegram-plane
+  GitHub: https://github.com/p1slave || fab fa-github
+  知乎: https://www.zhihu.com/people/p1slave || fab fa-zhihu
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
   # commonweal: /404/ || fa fa-heartbeat
@@ -176,6 +178,7 @@ links_settings:
 
 links:
   Keybase认证: https://keybase.io/p1slave
+  NFT商店链接: https://opensea.io/p1slave
   订阅Patreon: https://www.patreon.com/bePatron?u=66277088
   一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
   女主天地论坛: https://nztd38.com/home.php?mod=space&uid=675819
