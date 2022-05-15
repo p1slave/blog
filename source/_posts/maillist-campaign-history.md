@@ -4,6 +4,20 @@ date: 1971-06-09 19:36:18
 tags:
 ---
 
+## 一个充满绿色的视频
+偶然翻到一个以前网调当绿奴的聊天记录，推特上也好多人想看，所以就把所有语音消息录截屏录下来，开头是两段女主的自拍的视频，颜值相当在线。后面跟着三段小视频加起来一共有五分钟多，三段分别是：初次网络相识我要求验证然后被压榨，接着讲述她之前藏衣柜中的绿奴并循循善诱我也当绿奴，和炮友为爱鼓掌时边叫床边发语音骂贱狗到翻白眼。
+
+完整版太长有5分钟多，太长的视频推特没法直接发，就又做成购买链接：[https://jianshou.online/sell/D5bNmM5Z](https://jianshou.online/sell/D5bNmM5Z)
+
+![Alt text](https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/yezibao/cuckme/cuckme_preview.jpg)
+![Alt text](https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/yezibao/cuckme/cuckme_screenshot.jpg)
+
+预览视频副本一：做成了NFT，希望可以永远存在于这个世界上，这个视频也会永远流传下去，只有一份可以用以太坊购买和收藏品一样流通，说不定买了以后有升值的空间，链接如下：[Opensea NFT Asset](https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/50960317502526592489594102369261153062683301504558874064041294984784243589121)
+
+预览视频副本二：我也放在了IPFS上面永久保存，国内可能不能访问，链接如下：
+[https://ipfs.io/ipfs/QmW25j2Xc2bnv54owZr8zJfPreYhFSLynGzz3ZrJr25wxQ](https://ipfs.io/ipfs/QmW25j2Xc2bnv54owZr8zJfPreYhFSLynGzz3ZrJr25wxQ)
+
+
 ## 新视频更新和关于女拳的一些感想
 
 最近写了一篇文章《男S和女M结婚也需要彩礼吗》，关于女拳和彩礼的一些讨论，首次发在北美一亩三分地论坛，和十位拳师们一番激烈的讨论后直接被管理员封了号，不过幸好所有内容和评论我都存档到了自己博客，就当给大家作为娱乐看看了。
