@@ -407,7 +407,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
                         hashid = jianshou_map[abbrev_post_name].hashid
                         jianshou_client.update_baseinfo(hashid, new_intro=intro_html)
                         jianshou_client.update_payinfo(hashid, new_price=price, new_stock=stock, new_content=payinfo_html)
-                        self.logger.info("Jianshou selling item %s for post %s is updated" % (hashid, post_name))
+                        self.logger.info("Jianshou selling item %s for %s in post %s is updated" % (hashid, abbrev_post_name,post_name))
                     else:
                         # Create a new jianshou item
                         item = jianshou_client.upload(
@@ -418,7 +418,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
                             content=payinfo_html
                         )
                         hashid = item.hashid
-                        self.logger.info("A new Jianshou item %s for post %s is created" % (hashid, post_name))
+                        self.logger.info("A new Jianshou item %s for %s in post %s is created" % (hashid, abbrev_post_name, post_name))
 
     def upload_pcloud(self, site_path="/", overwrite=True):
         self.uploader = PcloudUploader(PCLOUD_EMAIL, PCLOUD_PASSWD)
