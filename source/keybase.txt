@@ -54,3 +54,65 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/p1slave
 
 ==================================================================
+
+
+
+
+
+
+==================================================================
+https://keybase.io/p1slave
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://p1slave.netlify.com
+  * I am p1slave (https://keybase.io/p1slave) on keybase.
+  * I have a public key ASBh5n3QO_br47W_Ud5n2LEHhPGHPyFp543e9OpWsfCzzwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012015a37dd6d52744e3bb2de3e8541bcd7ad0a7dae45e017baac503d72842537fa10a",
+      "host": "keybase.io",
+      "kid": "012061e67dd03bf6ebe3b5bf51de67d8b10784f1873f2169e78ddef4ea56b1f0b3cf0a",
+      "uid": "eec677c5efa6289594d0585973d03e19",
+      "username": "p1slave"
+    },
+    "merkle_root": {
+      "ctime": 1654840893,
+      "hash": "afa8a29780e95a09e7eb4929e233935d43f2ac02e88a8abaf0429e91190040710d5784c874334ae7800b3da96aca92bf3b6fb54d3dff1d1fb0bca6f15aad3514",
+      "hash_meta": "91c6a3dc96f254217385aaef226cbe8ec8c73e818f1a08bd9689b68689695049",
+      "seqno": 22648022
+    },
+    "service": {
+      "entropy": "zZQX0NeOsu3lgp0IRbO345AP",
+      "hostname": "p1slave.netlify.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.1"
+  },
+  "ctime": 1654840965,
+  "expire_in": 504576000,
+  "prev": "400e31b1e829ab136199b1e7863f1ed2407875a0b82528ecbdca7e0c6b8be0fa",
+  "seqno": 56,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgYeZ90Dv26+O1v1HeZ9ixB4Txhz8haeeN3vTqVrHws88Kp3BheWxvYWTESpcCOMQgQA4xsegpqxNhmbHnhj8e0kB4daC4JSjsvcp+DGuL4PrEIEwlmLVObFC3tXnZ+uKJiQdzXQpyxD9//PrD8JySzdXGAgHCo3NpZ8RADv/pC4TEj3rssHftv4REYKElP1klgxuyU9yi81GvLmCaMywYtlzZbcatkk293VrAUJKFsmYR1TBTRPwHQ/KECahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIDYavxaQrxcUtOwcehhSdv93ZxfzTpChok9XQgvK5VWQo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/p1slave
+
+==================================================================
