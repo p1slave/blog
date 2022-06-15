@@ -36,8 +36,14 @@ comments: false
 
 {% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/seph/happy_new_year/preview.jpg %}
 {% jianshou lkpZANYx nojs %}
-
 <!-- endtab -->
+
+<!-- tab 调教花絮上贡小短片 -->
+一个35秒的cashmeet上贡小花絮，之前推特上发过一次，都没漏点的也被标记为敏感内容和限流了，干脆删了推特上的，改发为付费内容。
+{% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/seph/happy_new_year/preview2.jpg %}
+{% jianshou 9YJRz1YE nojs %}
+<!-- endtab -->
+
 {% endtabs %}
 
 
