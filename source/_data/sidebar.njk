@@ -1,1 +1,21 @@
-<a class="twitter-timeline" href="https://twitter.com/p1slave?ref_src=twsrc%5Etfw">Tweets by p1slave</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<script src="/js/jquery.min.js"></script>
+<a id="twitter-sidebar" class="twitter-timeline" href="https://twitter.com/p1slave?ref_src=twsrc%5Etfw">Tweets by p1slave</a> 
+<!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  -->
+
+
+<script type="application/javascript">
+
+var twitterPage = $("#twitter-sidebar");
+twitterPage.hide();
+
+let twitterJs = "https://platform.twitter.com/widgets.js";
+// Check if the JS file can be loaded or not.
+$.getScript(twitterJs)
+	.done(function(script, textStatus) {
+		twitterPage.show();
+	})
+	.fail(function(jqxhr, settings, exception) {
+		twitterPage.hide();
+	});
+
+</script>

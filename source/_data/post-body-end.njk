@@ -1,1 +1,23 @@
-<a style="font-size:30px" href="https://www.patreon.com/bePatron?u=66277088" data-patreon-widget-type="become-patron-button">成为Patreon订阅会员!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+<script src="/js/jquery.min.js"></script>
+<div id="patreon-button">
+<a style="font-size:30px" href="https://www.patreon.com/bePatron?u=66277088" data-patreon-widget-type="become-patron-button">成为Patreon订阅会员!</a> 
+</div>
+{# <script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script> #}
+
+<script type="application/javascript">
+
+var patreonBtn = $("#patreon-button");
+patreonBtn.hide();
+
+let patreonJs = "https://c6.patreon.com/becomePatronButton.bundle.js";
+// Check if the JS file can be loaded or not.
+$.getScript(patreonJs)
+	.done(function(script, textStatus) {
+		patreonBtn.show();
+	})
+	.fail(function(jqxhr, settings, exception) {
+		patreonBtn.hide();
+		console.log("Patreon is either banned in China or cannot be loaded for unknown reasons");
+	});
+
+</script>
