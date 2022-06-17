@@ -50,9 +50,9 @@ darkmode: true
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
+  small: /images/favicon/favicon-16x16.png
+  medium: /images/favicon/favicon-32x32.png
+  apple_touch_icon: /images/favicon/apple-touch-icon.png
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /manifest.json
 
@@ -88,9 +88,10 @@ menu:
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   捐款链接: /donation/ || fa fa-donate
-  Twitter: https://twitter.com/p1slave || fab fa-twitter
-  Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
   Keybase认证: https://keybase.io/p1slave || fab fa-keybase
+  Twitter: https://twitter.com/p1slave || fab fa-twitter
+  爱发电会员平台: https://afdian.net/@p1slave || fa fa-heart
+  Patreon订阅: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
   付费内容全集: /goodies/ || fa fa-dollar-sign
   独家NFT商店: https://opensea.io/p1slave || fa fa-shopping-cart
   电报官方频道: https://t.me/p1slave_official || fab fa-telegram
@@ -179,10 +180,10 @@ links_settings:
 links:
   Keybase认证: https://keybase.io/p1slave
   NFT商店链接: https://opensea.io/p1slave
+  订阅爱发电: https://afdian.net/@p1slave
   订阅Patreon: https://www.patreon.com/bePatron?u=66277088
   一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
   女主天地论坛: https://nztd38.com/home.php?mod=space&uid=675819
-  Twitter时间线: /twitter/
   捐款链接: /donation/
 
 # Table of Contents in the Sidebar
@@ -274,7 +275,7 @@ reward_settings:
   # If true, a donate button will be displayed in every article by default.
   enable: true
   animation: true
-  comment: Buy me a coffee and become a patreon!
+  comment: 你们的打赏是我继续创作的动力!
 
 reward:
   wechatpay: /images/qrcode/wechat_donation.jpg
@@ -389,12 +390,12 @@ codeblock:
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
     style:
 
 back2top:
-  enable: true
+  enable: false
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
@@ -854,7 +855,7 @@ mermaid:
 # Use Animate.css to animate everything.
 # For more information: https://animate.style
 motion:
-  enable: true
+  enable: false
   async: false
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
