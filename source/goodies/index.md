@@ -105,4 +105,11 @@ comments: false
 {% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/stella/dick_rating_for_pig/preview.jpg 540 1018 %}
 {% jianshou 1GDaEVkQ nojs %}
 <!-- endtab -->
+
+<!-- tab Kayla女神语言羞辱和擦鞋 -->
+Kayla女神的内容也做成了下面的视频，总共有8分钟，拼接了好几个语言羞辱的的聊天截屏，加上一个她和模特女神双调时擦鞋的视频，喜欢语言羞辱的朋友很建议购买，难得有女主会露脸发过来两分钟以上的辱骂视频，还加了中英双语字幕，我可以负责任的说这是很好的英语学习材料，以后想找外国女S调教的朋友可以先来感受和适应一下，要不真上场时听不懂就尴尬了哈哈。
+{% img https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/kayla/verbal_compilation_1/preview.jpg %}
+{% jianshou 1GDXw0GQ nojs %}
+<!-- endtab -->
+
 {% endtabs %}
