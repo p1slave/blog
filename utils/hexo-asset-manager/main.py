@@ -20,22 +20,26 @@ manager = AutomatedBlogAssetManager(posts_dir, keyid=keyid)
 # uploader = PcloudUploader(PCLOUD_EMAIL, PCLOUD_PASSWD)
 # uploader.add_empty_index_html()
 
+post_selected = "introduce-goddess-kayla"
+
+f = open("preview.json")
+preview_selected = json.load(f)
+
 def process_assets():
 	manager.encrypt_post_assets()
-
-	f = open("preview.json")
-	preview_selected = json.load(f)
 	manager.generate_assets(logo_img_path, paywall_img_path, 
 		opacity=0.5, 
 		signature="p1slave.com", 
 		preview_selected=preview_selected,
-
+		post_selected=post_selected
 	)
 
-process_assets()
+# process_assets()
 
 # Upload all files in the asset folder to pcloud
-# TODO: Only upload the new pictures not the existing ones
-# manager.upload_pcloud(site_path="websites/p1slave")
+# manager.upload_pcloud(
+# 	site_path="websites/p1slave", 
+# 	post_selected=post_selected
+# )
 
-# manager.upload_jianshou(preview_selected=preview_selected)
+manager.upload_jianshou(preview_selected=preview_selected, post_selected=post_selected)
