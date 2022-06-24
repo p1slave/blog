@@ -104,7 +104,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
     def remove_watermarked_assets(self):
         self.remove_assets()
 
-    def generate_assets(self, logo_img_path, paywall_img_path, opacity=0.5, signature="watermarked", preview_selected={}, overwrite=False):
+    def generate_assets(self, logo_img_path, paywall_img_path, opacity=0.5, signature="watermarked", preview_selected={}, overwrite=False, post_selected=None):
         if not os.path.isfile(logo_img_path) or not os.path.isfile(paywall_img_path):
             self.logger.error("Logo or paywall image not found")
             return
@@ -124,10 +124,15 @@ class AutomatedBlogAssetManager(PostAssetManager):
             logo_img_path, 
             signature=signature, 
             opacity=opacity, 
-            preview_selected=preview_selected
+            preview_selected=preview_selected,
+            post_selected=post_selected
         )
 
-        self.create_preview_images(paywall_img_path, preview_selected=preview_selected)
+        self.create_preview_images(
+            paywall_img_path, 
+            preview_selected=preview_selected,
+            post_selected=post_selected
+        )
 
     def process_newfile(self, post_name, file_path):
         if not self.has_post(post_name):
@@ -232,7 +237,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
         )
 
     # If the file is selected for preview then don't watermark it but copy the preview file to asset folder
-    def watermark_post_assets(self, logo_file, signature, opacity=0.6, preview_selected={}):
+    def watermark_post_assets(self, logo_file, signature, opacity=0.6, preview_selected={}, post_selected=None):
         if not os.path.isfile(logo_file):
             self.logger.error("Provide a valid logo file")
             return
@@ -242,6 +247,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
             pre, _ = os.path.splitext(filename)
             asset_dir = os.path.dirname(decrypted_dir)
             _, asset_folder_name = os.path.split(asset_dir)
+
+            # Skip all posts except the one selected
+            if post_selected and asset_folder_name != post_selected:
+                return
 
             # Create a separate `jianshou` folder for the watermarked images to be uploaded to jianshou.online
             jianshou_asset_dir = os.path.join(asset_dir, "jianshou")
@@ -282,7 +291,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
             gen_watermark_image
         )
 
-    def create_preview_images(self, paywall_img_path, preview_selected={}, radius=200):
+    def create_preview_images(self, paywall_img_path, preview_selected={}, radius=200, post_selected=None):
         if not os.path.isfile(paywall_img_path):
             self.logger.error("Paywall image does not exist: " + paywall_img_path)
             return
@@ -292,6 +301,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
             decrypted_dir, filename = os.path.split(original_file_path) 
             asset_folder_path = os.path.dirname(decrypted_dir)
             _, post_folder_name = os.path.split(asset_folder_path)
+
+            # Skip all posts except the one selected
+            if post_selected and post_folder_name != post_selected:
+                return
 
             if post_folder_name in preview_selected and filename in preview_selected[post_folder_name]:
                 pre, _ = os.path.splitext(filename)
@@ -319,7 +332,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
             gen_preview_image
         )
 
-    def upload_jianshou(self, preview_selected={}):
+    def upload_jianshou(self, preview_selected={}, post_selected=None):
         JIANSHOU_EMAIL = os.environ.get('JIANSHOU_EMAIL') or input("Jianshou email: ")
         JIANSHOU_PASSWD = os.environ.get('JIANSHOU_PASSWD') or input("Jianshou password: ")
         jianshou_client = JianshouClient(JIANSHOU_EMAIL, JIANSHOU_PASSWD)
@@ -335,6 +348,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
         self.logger.info("Found %d existing jianshou selling items" % len(items))
 
         for post_name in self.posts():
+            # Skip all posts except the one post selected
+            if post_selected and post_name != post_selected:
+                continue
+
             if post_name in preview_selected:
                 JIANSHOU_HASH_SALT = os.environ.get('JIANSHOU_HASH_SALT') or input("Please input your hash salt: ")
                 asset_folder_hash = hashlib.sha1((post_name + JIANSHOU_HASH_SALT).encode("utf-8")).hexdigest()
@@ -420,7 +437,7 @@ class AutomatedBlogAssetManager(PostAssetManager):
                         hashid = item.hashid
                         self.logger.info("A new Jianshou item %s for %s in post %s is created" % (hashid, abbrev_post_name, post_name))
 
-    def upload_pcloud(self, site_path="/", overwrite=True):
+    def upload_pcloud(self, site_path="/", overwrite=True, post_selected=None):
         self.uploader = PcloudUploader(PCLOUD_EMAIL, PCLOUD_PASSWD)
         _, public_root_folder_name = self.uploader.find_public_folder()
         sitepath_folderid = self.uploader.create_path_from_public_folder(site_path)
@@ -432,6 +449,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
             post_asset_foldername = os.path.split(asset_folder_path)[-1]
             post_folderid = self.uploader.create_path(sitepath_folderid, dir_path=post_asset_foldername)
             pcloud_upload_folder_abspath = os.path.join(public_root_folder_name, site_path, post_asset_foldername)
+
+            # Skip all posts except the one post selected
+            if post_selected and post_asset_foldername != post_selected:
+                return
 
             # Do not have to check the files in the asset folder if we are going to upload and overwrite them.
             if not overwrite:
@@ -461,6 +482,10 @@ class AutomatedBlogAssetManager(PostAssetManager):
             # Find the post folder under the site path /path/to/post_name_xxx/jianshou
             asset_folder_path = os.path.split(jianshou_folder_path)[0]
             post_asset_foldername = os.path.split(asset_folder_path)[-1]
+
+            # Skip all posts except the one post selected
+            if post_selected and post_asset_foldername != post_selected:
+                return
 
             post_folderid = self.uploader.create_path(sitepath_folderid, dir_path=post_asset_foldername)
             # Add salt before hashing so no one can guess the name of the subfolder
