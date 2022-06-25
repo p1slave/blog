@@ -182,7 +182,7 @@ links:
   NFT商店链接: https://opensea.io/p1slave
   订阅爱发电: https://afdian.net/@p1slave
   订阅Patreon: https://www.patreon.com/bePatron?u=66277088
-  一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html
+  一亩三分地: https://www.1point3acres.com/bbs/space-uid-906579.html
   女主天地论坛: https://nztd38.com/home.php?mod=space&uid=675819
   捐款链接: /donation/
 
@@ -290,9 +290,10 @@ reward:
 # Usage: `Key: permalink || icon` (Font Awesome)
 follow_me:
   Twitter: https://twitter.com/p1slave || fab fa-twitter
+  爱发电: https://afadian.net/@p1slave || fa fa-heart
   Patreon: https://www.patreon.com/bePatron?u=66277088 || fab fa-patreon
   GitHub: https://github.com/p1slave || fab fa-github
-  一亩三分地: https://www.1point3acres.com/bbs/space-uid-816933.html || fas fa-piggy-bank
+  一亩三分地: https://www.1point3acres.com/bbs/space-uid-906579.html || fas fa-piggy-bank
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
   RSS: /atom.xml || fa fa-rss
