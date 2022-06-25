@@ -45,8 +45,5 @@ Kayla女神的内容也做成了下面的视频，总共有8分钟，拼接了�
 
 {% endgrouppicture %}
 
-
-
-
-
-
+更新一个25秒预览视频：
+{% video https://filedn.com/lVPXJ6zBrsv7KNrX9DO8bMh/resource/videos/kayla/verbal_compilation_1/trailer.mp4 %}
