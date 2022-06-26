@@ -17,7 +17,7 @@ comments: false
 
 {% grouppicture 5-3 %}
 
-![](/images/qrcode/wechat_donation.jpg "微信赞赏码")
+![](/images/qrcode/wechat.jpg "微信赞赏码")
 ![](/images/qrcode/cashapp.jpg "Cashapp二维码")
 ![](/images/qrcode/btc.png "比特币Bitcoin二维码")
 ![](/images/qrcode/bch.png "比特币现金Bitcoin Cash二维码")

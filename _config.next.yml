@@ -278,7 +278,7 @@ reward_settings:
   comment: 你们的打赏是我继续创作的动力!
 
 reward:
-  wechatpay: /images/qrcode/wechat_donation.jpg
+  wechatpay: /images/qrcode/wechat.jpg
   cashapp: /images/qrcode/cashapp.jpg
   #alipay: /images/alipay.png/
   #paypal: /images/paypal.png
