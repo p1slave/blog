@@ -591,7 +591,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: isso
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -607,7 +607,7 @@ comments:
 # Disqus
 # For more information: https://disqus.com
 disqus:
-  enable: true
+  enable: false
   shortname: p1slave
   count: true
 
@@ -663,7 +663,7 @@ utterances:
 
 # Isso
 # For more information: https://posativ.org/isso/
-isso: # <data_isso>
+isso: https://comments.p1slave.com/
 
 
 # ---------------------------------------------------------------
